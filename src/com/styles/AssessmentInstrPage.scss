@@ -1,0 +1,68 @@
+@use './colors' as colors;
+
+.mainContainer {
+  background-color: #000;
+  color: #fff;
+  width: 965px;
+  height: 447px;
+  margin: auto;
+  // border-top: 6px solid #00e14e;
+  position: absolute;
+  left: 25px;
+  top: 86px;
+  font-family: 'Sarabun-Regular';
+  // opacity: 0.5;
+  // padding: 20px;
+  opacity: 1;
+  animation: slideInRight 0.5s ease-in-out;
+}
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.mainContainer .title {
+  font-family: 'NunitoBold';
+  font-size: 16PX;
+  text-align: center;
+  color: #229549;
+  margin-bottom: 10px;
+}
+.disContainer {
+  font-family: 'Nunito';
+  font-size: 12px;
+  margin: 0px 30px 17px 30px;
+  max-height: 343px;
+  // overflow-y: auto;
+  // overflow-x: hidden;
+  color: #fff;
+
+  p:not(:first-of-type) {
+    margin-top: 0;
+    margin-left: 10px;
+  }
+}
+
+.mainContainer button {
+  // background-color: colors.$green1;
+  font-family: 'Nunito';
+  font-size: 14px;
+  width: 155px;
+  // height: 35px;
+  // border-radius: 30px;
+  // color: #000;
+}
+.disContainer ul li{
+  margin-top: 0;
+  line-height: 1.6;
+}
+.disContainer ul{
+  margin-top: 10px;
+  margin-bottom: 8px;
+  margin-left: -15px;
+}

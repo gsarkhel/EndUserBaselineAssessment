@@ -1,0 +1,23 @@
+# Enable the expires module
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Set cache time for images to 1 day
+    ExpiresByType image/jpg "access plus 1 day"
+    ExpiresByType image/jpeg "access plus 1 day"
+    ExpiresByType image/png "access plus 1 day"
+    ExpiresByType image/gif "access plus 1 day"
+    ExpiresByType image/svg+xml "access plus 1 day"
+    ExpiresByType image/webp "access plus 1 day"
+</IfModule>
+
+# Set Cache-Control headers
+<IfModule mod_headers.c>
+    # Cache images for 1 day
+    <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp)$">
+        Header set Cache-Control "max-age=86400, public"
+    </FilesMatch>
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes

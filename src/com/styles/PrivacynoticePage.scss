@@ -1,0 +1,73 @@
+@use 'colors' as c;
+
+.mainContainer {
+  background-color: c.$white;
+  color: c.$black;
+  width: 965px;
+  height: 447px;
+  margin: auto;
+  position: absolute;
+  left: 25px;
+  top: 86px;
+  // font-family: 'Nunito';
+  // font-size: 12px;
+  animation: slideInRight 0.5s ease-in-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.mainContainer .title {
+  text-align: center;
+  // color: c.$red;
+  color: rgb(177, 0, 67);
+font-size: 16px;
+font-family: 'Nunito';
+  margin-bottom: 0;
+  margin-top: 15px;
+}
+
+.mainContainer button {
+  // background-color: c.$green1;
+    font-family: 'Nunito';
+  padding-top: 2PX;
+   font-size: 14px;
+  // width: 174px;
+  // height: 35px;
+  // border-radius: 30px;
+  // color: #000;
+  bottom: 15px;
+}
+
+.disContainer {
+  margin: 0px 30px 20px 30px;
+  font-family: 'Nunito';
+  font-size: 14px;
+  max-height: 343px;
+  // overflow-y: auto;
+  // overflow-x: hidden;
+}
+.disContainer p{
+  color: #000;
+  margin-top: 10px;
+  font-family: 'Nunito';
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.disContainer ul{
+  margin-top: 0;
+  margin-left: -15px;
+}
+.disContainer ul li{
+  margin-top: 0;
+  line-height: 1.6;
+}

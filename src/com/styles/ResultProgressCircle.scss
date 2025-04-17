@@ -1,0 +1,34 @@
+.scoreContainer {
+    background-color: black;
+    color: white;
+    // padding: 24px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+  }
+  
+  .scoreTitle {
+    margin-bottom: 8px;
+    font-size: 16px;
+    width: 50%;
+    font-family: 'Nunito';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .scoreChartContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+  }
+  
+  .scoreText {
+    position: absolute;
+    font-size: 16px;
+    font-family: 'NunitoBold';
+    // font-weight: 700;
+  }

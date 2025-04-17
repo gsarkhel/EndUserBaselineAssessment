@@ -1,0 +1,217 @@
+@use './colors' as colors;
+
+.ecostruxurePage {
+  width: 90%;
+  height: 1080px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  overflow: hidden;
+  margin: auto;
+  // animation: fadeIn 1.5s ease-in-out, slideUp 1s ease-in-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.contentArea {
+  display: flex;
+  position: relative;
+  height: 405px;
+  overflow-y: auto;
+  border: 1px solid white;
+  margin-bottom: 4%;
+  margin-top: -1.2px;
+  position: relative;
+  z-index: 1;
+  background-color: #000;
+}
+
+.contentContainer {
+  flex: 1;
+  padding: 10px 40px;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 16px;
+  font-family: 'Nunito';
+  margin-bottom: 1rem;
+  color: #4ade80;
+  text-align: center;
+  margin-top: 10px;
+  padding: 0 30px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 0;
+  background-color: #27272a;
+  overflow: hidden;
+  width: 80%;
+  max-width: 64rem;
+  position: relative;
+  height: 250px;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: #000;
+  transform: translateX(-50%);
+  height: 100%;
+}
+
+.statsSection {
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  // gap: 1.5rem;
+}
+
+.statRow {
+  font-family: 'Nunito';
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px;
+}
+
+.statLabel {
+  font-family: 'Nunito';
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.statValue {
+  font-family: 'Nunito';
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  margin-left: 6px;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: #3f3f46;
+}
+
+.progressSection {
+  font-family: 'Nunito';
+  font-size: 13px;
+  padding: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+h3 {
+  font-size: 13px;
+  font-family: 'Nunito';
+}
+
+// start from here
+
+.progressContainer {
+  position: relative;
+  width: 136px;
+  height: 136px;
+  margin-bottom: 0rem;
+}
+
+.backgroundCircle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progressCircle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: background 0.3s ease-in-out;
+}
+
+.innerCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5.95rem;
+  height: 5.95rem;
+  background-color: #27272a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.percentageText {
+  font-family: 'Nunito';
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+
+// ends here
+
+.statusText {
+  font-size: 12px;
+  font-family: 'Nunito';
+  margin-top: 1rem;
+}
+
+.buttonContainer button {
+  font-size: 14px;
+  font-family: 'Nunito';
+  font-size: 14px;
+  width: 130px;
+  bottom: 25px;
+}
+
+.buttonContainerRetake button {
+  width: 150px;
+  font-size: 14px;
+  font-family: 'Nunito';
+  bottom: 25px;
+  background-color: #e37e00;
+}
+
+.fullWidth {
+  width: 57%;
+}
+
+.displayCenter {
+  display: flex;
+  justify-content: end;
+  margin-top: 10px;
+}
+

@@ -1,0 +1,33 @@
+.fullWidth {
+  width: 100%;
+}
+
+.displayCenter {
+  display: flex;
+  justify-content: center;
+}
+
+
+.button {
+  background-color: #00FF7F;
+  color: #333333;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  // transition: all 0.3s ease-in-out;
+  display: inline-block;
+  min-width: 180px;
+}
+
+.button:hover {
+  background-color: #008f5a;
+  color: white;
+}
+
+.button:active {
+  background-color: #005f3a;
+}

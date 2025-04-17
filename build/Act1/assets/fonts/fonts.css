@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'LatoBold';
+  src: url('./assets/fonts/Lato-Bold.woff');
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('./assets/fonts/Lato-Regular.woff');
+}
+
+@font-face {
+  font-family: 'NunitoBold';
+  src: url('./assets/fonts/Nunito-Bold.woff');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('./assets/fonts/Nunito-Regular.woff');
+}
+
+@font-face {
+  font-family: 'NunitoItalic';
+  src: url('./assets/fonts/Nunito-Italic.woff');
+}
+
+@font-face {
+  font-family: 'NunitoSemiBold';
+  src: url('./assets/fonts/Nunito-SemiBold.woff');
+}
+
+.styleFontPreload {
+  position: absolute;
+  left: -100px;
+  top: -100px;
+}
+
+#fontLoader1 {
+  font-family: 'LatoBold';
+}
+#fontLoader2 {
+  font-family: 'Lato';
+}
+#fontLoader3 {
+  font-family: 'NunitoBold';
+}
+#fontLoader4 {
+  font-family: 'Nunito';
+}
+#fontLoader5 {
+  font-family: 'NunitoItalic';
+}
+#fontLoader6 {
+  font-family: 'NunitoSemiBold';
+}
+
+#fontLoader10 {
+  background-image: url('./assets/images/cb.png');
+}
+#fontLoader9 {
+  background-image: url('./assets/images/cbUnchecked.png');
+}
+

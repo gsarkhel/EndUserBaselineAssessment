@@ -1,0 +1,124 @@
+
+.container {
+  width: 100%;
+  max-width: 638px;
+  // margin: 0 auto;
+  // display: flex;
+  background-color: transparent;
+  
+}
+
+.scoreRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.strline {
+  position: relative;
+  // display: inline-block;
+}
+.strline::after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  bottom: -25px;
+  width: 23%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  transform: translateX(-50%);
+}
+
+.label {
+  flex: 0 0 365px;
+  padding-right: 15px;
+  text-align: right;
+  color: white;
+  font-size: 13px;
+  font-family: 'Nunito';
+  
+ 
+}
+
+.barContainer {
+  flex-grow: 1;
+  height: 17px;
+  background-color: rgba(128, 128, 128, 0.3);
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.bar {
+  height: 100%;
+  // min-width: 50px;
+  transition: width 0.5s ease-in-out;
+}
+
+.percentageText {
+  font-family: 'Lato';
+  position: absolute;
+  right: -50px;
+  color: #3ccd57;
+  font-weight: 400;
+  width: 35px;
+  text-align: left;
+  font-size: 17px;
+}
+
+.passingScoreNote {
+  position: relative;
+  top: 0;
+  right: -50px;
+  color: #3ccd57;
+  text-align: right;
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+
+
+.headerContainer {
+  // background-color: #212529;
+  text-align: center;
+  padding: 10px;
+  // border-bottom: 3px solid white;
+  margin-bottom: 15px;
+  font-family: Lato;
+  position: relative;
+    top: 0;
+    right: -25px;
+}
+
+.headerContainer h1 {
+  position: relative;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #22c55e;
+  padding-bottom: 5px;
+}
+
+.headerContainer h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -9px;
+  width: 80%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  transform: translateX(-50%);
+}
+
+.headerTitle {
+  color: #4ade80;
+  font-size: 18px;
+  margin: 0;
+  margin-left: 30px;
+}
+
+body {
+  background-color: #1a1a1a;
+}

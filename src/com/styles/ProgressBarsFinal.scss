@@ -1,0 +1,53 @@
+/* ProgressBar.module.css */
+.progressContainer {
+  background-color: #000;
+  color: white;
+  padding: 20px;
+  // font-family: Arial, sans-serif;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.progressItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.progressLabel {
+  width: 150px;
+  text-align: right;
+  padding-right: 15px;
+  font-size: 13px;
+  font-family: 'Nunito';
+}
+
+.progressBarContainer {
+  flex-grow: 1;
+  height: 12px;
+  background-color: #444;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+.progressBarGreen {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+  background-color: #4cd964;
+}
+
+.progressBarOrange {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+  background-color: #ff9500;
+}
+
+.progressPercentage {
+  width: 40px;
+  font-weight: bold;
+  font-size: 13px;
+  font-family: 'Nunito';
+}

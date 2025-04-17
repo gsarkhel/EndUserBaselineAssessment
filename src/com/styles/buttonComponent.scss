@@ -1,0 +1,35 @@
+@use './colors' as colors;
+// .defaultBtnHover {
+//   border: 3px solid greenyellow;
+//   cursor: pointer;
+// }
+
+.defaultBtn {
+  // border: 3px solid transparent;
+  // cursor: pointer;
+}
+button {
+  background-color: colors.$green1;
+  font-size: 18px;
+  width: auto;
+  height: 38px;
+  border-radius: 30px;
+  color: #333333;
+  padding: 0px 25px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 15px;
+}
+button span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// button:hover{
+//   background-color: rgb(89, 255, 67);
+//   cursor: pointer;
+//   border: 3px solid transparent;
+// }

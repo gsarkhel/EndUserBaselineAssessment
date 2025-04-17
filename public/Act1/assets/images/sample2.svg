@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    data-xmlns-xlink="http://www.w3.org/1999/xlink" version="1.1" baseprofile="full"
+   height="73.6125" width="73.6125" focusable="false" viewBox="10 10 27 27"
+    data-commandset-id="175" data-accepts="events" data-dv_ref="ref-2272">
+    <g class="eventable" data-accepts="events">
+        <defs data-accepts="events">
+            <linearGradient
+                gradientTransform="translate(0.5454546213150024, 0.5454546213150024) translate(-0.5454546213150024, -0.5454546213150024) scale(1.0000001192092896, 1.0000001192092896) rotate(90, 0.5, 0.5)"
+                id="uniqueDomId-2273" data-accepts="events">
+                <stop offset="0%" stop-color="#DBDBDB" stop-opacity="1" data-accepts="events"></stop>
+                <stop offset="0%" stop-color="#DBDBDB" stop-opacity="1" data-accepts="events"></stop>
+                <stop offset="100%" stop-color="#F4F4F4" stop-opacity="1" data-accepts="events"></stop>
+                <stop offset="100%" stop-color="#F4F4F4" stop-opacity="1" data-accepts="events"></stop>
+            </linearGradient>
+        </defs>
+        <g id="uniqueDomId-2278" class="uneventable" data-accepts="events">
+            <path
+                d="M32.999996,11C34.104565,10.999998 34.999996,11.895427 34.999996,12.999999 34.999996,12.999999 34.999996,13 34.999996,13L34.999996,32.999996C34.999996,34.104568 34.104568,34.999996 33,34.999996L13.000001,34.999996C11.895432,35 11,34.104568 11,33L10.999999,13.000001C10.999999,11.895432 11.895429,11.000001 12.999997,10.999999z"
+                id="uniqueDomId-2279" fill="#F4F4F4" fill-opacity="1" stroke-width="3"
+                stroke="#000000" stroke-opacity="0.24" stroke-linecap="flat" stroke-linejoin="round"
+                data-stroke-sharpened="true" transform="translate(0.5, 0.5)" data-accepts="events"></path>
+            <path
+                d="M31.999996,12C33.104565,11.999998 33.999996,12.895427 33.999996,13.999999 33.999996,13.999999 33.999996,14 33.999996,14L33.999996,31.999998C33.999996,33.104568 33.104568,33.999996 32,33.999996L14.000001,33.999996C12.895432,34 12,33.104568 12,32L11.999999,14.000001C11.999999,12.895432 12.895429,12.000001 13.999997,11.999999z"
+                id="uniqueDomId-2280" fill="url(#uniqueDomId-2273)" data-accepts="events"></path>
+            <path
+                d="M31.999996,12C33.104565,11.999998 33.999996,12.895427 33.999996,13.999999 33.999996,13.999999 33.999996,14 33.999996,14L33.999996,31.999998C33.999996,33.104568 33.104568,33.999996 32,33.999996L14.000001,33.999996C12.895432,34 12,33.104568 12,32L11.999999,14.000001C11.999999,12.895432 12.895429,12.000001 13.999997,11.999999z"
+                id="uniqueDomId-2281" fill="none" stroke-width="1" stroke="#FFFFFF"
+                stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round"
+                data-stroke-sharpened="true" transform="translate(0.5, 0.5)" data-accepts="events"></path>
+        </g>
+    </g>
+</svg>
