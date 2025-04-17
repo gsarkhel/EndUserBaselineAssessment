@@ -50,7 +50,7 @@ const ScromInfo: ScromInfoModel = {
       { _params: 'cmi.completion_status', _value: 'incomplete' },
       { _params: 'cmi.score.max', _value: 100 },
       { _params: 'cmi.score.min', _value: 0 },
-      { _params: 'cmi.exit', _value: state.location === 'results' && state.isSessionActive ? 'normal' : 'suspend' },
+      // { _params: 'cmi.exit', _value: state.location === 'results' && state.isSessionActive ? 'normal' : 'suspend' },
     ]);
   }),
   setActiveSession: action((state, payload) => {

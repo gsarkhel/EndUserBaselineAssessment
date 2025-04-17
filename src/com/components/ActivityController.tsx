@@ -179,7 +179,7 @@ const ActivityController = (props: activityControllerPropsInterface) => {
     setInterations({
       index: _qCount,
       data: {
-        id: `${t(tabs[activeTab]?.title).replaceAll(' ', '_')}_${_nQues}`,
+        id: `attempt_${scormData.totalAttempts+1}_${t(tabs[activeTab]?.title).replaceAll(' ', '_').replaceAll('&', 'n')}_${_nQues}`,
         response: _optStr.map((_t) => t(_t)),
         feedback: _ques.weightage ? 'neutral' : _score > 0 ? 'correct' : 'incorrect',
         answer: (typeof _ques.ans === 'object'

@@ -194,7 +194,7 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
         {parse(t('finalResult2Text2') || '')}
       </p>
       <p className={styles2.messageText}>{parse(t('finalResult2Text3') || '')}</p>
-      {scormData.totalAttempts == 0 ? (
+      {/* {scormData.totalAttempts == 0 ? ( */}
         <div className={styles2.countdownSection}>
           <div className={styles2.clockIconContainer}>
             <img src={images.stopWatch?.url} alt="Clock Icon" />
@@ -203,12 +203,12 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
             {parse(t('timerText').replace('{days}', getFormattedTimeRemaining()) || '')}
           </p>
         </div>
-      ) : (
+      {/* ) : (
         //Exit Button
         <div className={`${styles2.countdownSection} ${styles2.exitButtonBox}`}>
           <ButtonComponent text={t('exit')} clickHandler={closeCourse} />
         </div>
-      )}
+      )} */}
     </div>
   );
 
