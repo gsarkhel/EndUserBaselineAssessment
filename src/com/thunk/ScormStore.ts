@@ -48,9 +48,9 @@ const ScromInfo: ScromInfoModel = {
       { _params: 'cmi.score.scaled', _value: payload / 100 },
       { _params: 'cmi.success_status', _value: 'unknown' },
       { _params: 'cmi.completion_status', _value: 'incomplete' },
-      { _params: 'cmi.score.max', _value: 100 },
+      { _params: 'cmi.score.max', _value: 65 },
       { _params: 'cmi.score.min', _value: 0 },
-      // { _params: 'cmi.exit', _value: state.location === 'results' && state.isSessionActive ? 'normal' : 'suspend' },
+      { _params: 'cmi.exit', _value: 'suspend' },
     ]);
   }),
   setActiveSession: action((state, payload) => {
@@ -69,8 +69,9 @@ const ScromInfo: ScromInfoModel = {
       { _params: 'cmi.score.raw', _value: score },
       { _params: 'cmi.score.scaled', _value: score / 100 },
       { _params: 'cmi.success_status', _value: score > valuesObj.generalConfig.passingCriteria ? 'passed' : 'failed' },
-      { _params: 'cmi.score.max', _value: 100 },
+      { _params: 'cmi.score.max', _value: 65 },
       { _params: 'cmi.score.min', _value: 0 },
+      { _params: 'cmi.exit', _value: 'normal' },
     ]);
   }),
 

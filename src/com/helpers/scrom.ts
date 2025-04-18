@@ -7,7 +7,7 @@ declare global {
 
 export const initalizeScrom = () => {
   // scorm.handleExitMode is to remove the default feature of marking cmi.exit
-  // scorm.handleExitMode = false;
+  scorm.handleExitMode = false;
   window.mainScrom = scorm;
   return scorm.initialize();
 };
