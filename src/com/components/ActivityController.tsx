@@ -274,6 +274,7 @@ const ActivityController = (props: activityControllerPropsInterface) => {
         title={tabs[activeTab]?.title}
         questionsAttempted={scormData.tabs[tabs[activeTab]?.id].questions.length}
         correctResponses={scormData.tabs[tabs[activeTab]?.id].correctCount}
+        percentage={scormData.tabs[tabs[activeTab]?.id].score}
       />
     );
   } else if (page == 'resultRetake') {
@@ -283,6 +284,7 @@ const ActivityController = (props: activityControllerPropsInterface) => {
         title={tabs[activeTab]?.title}
         questionsAttempted={scormData.tabs[tabs[activeTab]?.id].questions.length}
         correctResponses={scormData.tabs[tabs[activeTab]?.id].correctCount}
+        percentage={scormData.tabs[tabs[activeTab]?.id].score}
       />
     );
   }

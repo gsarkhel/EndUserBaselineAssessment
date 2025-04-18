@@ -22,9 +22,9 @@ const ResultsCard = (props: ResultsCardProps) => {
   const [animatedPercentage, setAnimatedPercentage] = useState(0);
 
   const { valuesObj } = globalStore.useStoreState((store) => store.player);
-
-  const percentage = Number(((correctResponses / questionsAttempted) * 100).toFixed(0));
-  const isPassed = percentage > 50;
+  
+  const percentage = props.percentage || Number(((correctResponses / questionsAttempted) * 100).toFixed(0));
+  const isPassed = percentage > 65;
   const statusMessage = isPassed
     ? t('youPassed')
     : t('youFailed1').replace('{passing}', `${valuesObj.generalConfig.passingCriteria}`);
