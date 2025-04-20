@@ -27,42 +27,29 @@ interface CertificationCardPropsInterface {
 }
 
 const CertificationCard = (props: CertificationCardPropsInterface) => {
-  const {
-    clickHandler,
-    scores = {},
-    average = 0,
-    emailAddress = 'commercial.excellence.academy@se.com',
-  } = props;
+  const { clickHandler, scores = {}, average = 0, emailAddress = 'commercial.excellence.academy@se.com' } = props;
 
   const targetRef = useRef<HTMLDivElement>();
 
   const { images } = globalStore.useStoreState((st) => st.player);
   const { valuesObj } = globalStore.useStoreState((store) => store.player);
-  const { scormData, startScreen } = globalStore.useStoreState(
+  const { scormData, startScreen } = globalStore.useStoreState((store) => store.scromInfo);
+  const { setLocation, setData, setComplition, setStartScreen } = globalStore.useStoreActions(
     (store) => store.scromInfo
   );
-  const { setLocation, setData, setComplition, setStartScreen } =
-    globalStore.useStoreActions((store) => store.scromInfo);
-  const { setRecheckMode } = globalStore.useStoreActions(
-    (store) => store.activity
-  );
+  const { setRecheckMode } = globalStore.useStoreActions((store) => store.activity);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const _general = valuesObj.generalConfig;
   const isPassed =
-    _general.passingCriteria < average &&
-    Object.keys(scores).every((_i) => scores[_i] > _general.passingCriteria);
+    _general.passingCriteria < average && Object.keys(scores).every((_i) => scores[_i] > _general.passingCriteria);
 
-  const lastAttemptDate = new Date(
-    scormData.lastAttempt || new Date().toISOString()
-  );
+  const lastAttemptDate = new Date(scormData.lastAttempt || new Date().toISOString());
   const timeIntervalInMs = _general.timeForNext * 60 * 1000; // Convert minutes to milliseconds
   // const hasTimeIntervalPassed = startScreen == 'results' && scormData.totalAttempts > 0 ? true : Date.now() >= lastAttemptDate?.getTime() + timeIntervalInMs;
   const hasTimeIntervalPassed =
-    scormData.totalAttempts > 0
-      ? true
-      : Date.now() >= lastAttemptDate?.getTime() + timeIntervalInMs;
+    scormData.totalAttempts > 0 ? true : Date.now() >= lastAttemptDate?.getTime() + timeIntervalInMs;
   console.log(startScreen);
 
   const pdfRef = useRef<HTMLDivElement>(null);
@@ -76,18 +63,12 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
   };
 
   const handleModalStart = () => {
-    setData({
-      ...scormData,
-      totalAttempts: scormData.totalAttempts + 1,
-      lastAttempt: new Date().toISOString(),
-    });
+    setData({ ...scormData, totalAttempts: scormData.totalAttempts + 1, lastAttempt: new Date().toISOString() });
     setIsModalOpen(false);
     let i = 0;
     let tabs = Object.keys(scormData.tabs);
     for (0; i < tabs.length; i++) {
-      if (
-        scormData.tabs[tabs[i]].score < valuesObj.generalConfig.passingCriteria
-      ) {
+      if (scormData.tabs[tabs[i]].score < valuesObj.generalConfig.passingCriteria) {
         break;
       }
     }
@@ -135,9 +116,7 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
 
       // Store original elements
       const originalBody = document.body.cloneNode(true);
-      const originalElements = Array.from(
-        document.body.children
-      ) as HTMLDivElement[];
+      const originalElements = Array.from(document.body.children) as HTMLDivElement[];
 
       // Hide original content
       originalElements.forEach((element) => {
@@ -168,19 +147,14 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
   };
 
   const getFormattedTimeRemaining = () => {
-    const timeRemainingMs = Math.max(
-      0,
-      lastAttemptDate?.getTime() + timeIntervalInMs - Date.now()
-    );
+    const timeRemainingMs = Math.max(0, lastAttemptDate?.getTime() + timeIntervalInMs - Date.now());
 
     // Round up to nearest hour first
     const totalHoursRoundedUp = Math.ceil(timeRemainingMs / (60 * 60 * 1000));
     const totalMs = totalHoursRoundedUp * 60 * 60 * 1000;
 
     const days = Math.floor(totalMs / (24 * 60 * 60 * 1000));
-    const hours = Math.floor(
-      (totalMs % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000)
-    );
+    const hours = Math.floor((totalMs % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
 
     const parts = [];
     if (days > 0) parts.push(`${days} day${days !== 1 ? 's' : ''}`);
@@ -190,7 +164,9 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
   };
 
   useEffect(() => {
-    setComplition(average);
+    console.log('here');
+
+    setComplition({ score: average, isPassed: isPassed });
   }, []);
 
   const closeCourse = () => {
@@ -208,33 +184,24 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
         </div>
       </div>
 
-      <p className={styles2.messageText}>
-        {parse(t('finalResult2Text1') || '')}
-      </p>
+      <p className={styles2.messageText}>{parse(t('finalResult2Text1') || '')}</p>
 
-      <div className='text-center mt-4'></div>
+      <div className="text-center mt-4"></div>
 
-      <div
-        className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles2.button1}`}
-      >
+      <div className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles2.button1}`}>
         <ButtonComponent text={t('buttonText')} clickHandler={downloadPdf} />
       </div>
       <p className={styles2.messageText1} style={{ marginBottom: '11px' }}>
         {parse(t('finalResult2Text2') || '')}
       </p>
-      <p className={styles2.messageText}>
-        {parse(t('finalResult2Text3') || '')}
-      </p>
+      <p className={styles2.messageText}>{parse(t('finalResult2Text3') || '')}</p>
       {scormData.totalAttempts < 6 ? (
         <div className={styles2.countdownSection}>
           <div className={styles2.clockIconContainer}>
-            <img src={images.stopWatch?.url} alt='Clock Icon' />
+            <img src={images.stopWatch?.url} alt="Clock Icon" />
           </div>
           <p className={styles2.countdownText}>
-            {parse(
-              t('timerText').replace('{days}', getFormattedTimeRemaining()) ||
-                ''
-            )}
+            {parse(t('timerText').replace('{days}', getFormattedTimeRemaining()) || '')}
           </p>
         </div>
       ) : null}
@@ -253,65 +220,43 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
 
         <p className={styles.messageText}>{parse(t('message1') || '')}</p>
 
-        <div className='text-center mt-4'></div>
+        <div className="text-center mt-4"></div>
 
-        <div
-          className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles.button1}`}
-        >
+        <div className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles.button1}`}>
           <ButtonComponent text={t('buttonText')} clickHandler={downloadPdf} />
         </div>
       </div>
     );
-  } else if (
-    hasTimeIntervalPassed &&
-    _general.totalAttempts > scormData.totalAttempts
-  ) {
+  } else if (hasTimeIntervalPassed && _general.totalAttempts > scormData.totalAttempts) {
     centralArea = (
       <div className={styles3.rightSection}>
         <div className={styles3.badgeContainer}>
           <div className={styles3.imgCont}>
             <img src={images.warningPng?.url} alt={t('badgeAlt')} />
           </div>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <h2 className={styles3.congratsTitle}>{t('failText')}</h2>
           </div>
         </div>
 
-        <p className={styles3.messageText}>
-          {parse(t('finalResult2Text1') || '')}
-        </p>
+        <p className={styles3.messageText}>{parse(t('finalResult2Text1') || '')}</p>
 
-        <div className='text-center mt-4'></div>
+        <div className="text-center mt-4"></div>
 
-        <div
-          className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles3.button1}`}
-        >
+        <div className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles3.button1}`}>
           <ButtonComponent text={t('buttonText')} clickHandler={downloadPdf} />
         </div>
         <p className={styles3.messageText1} style={{ marginBottom: '11px' }}>
           {parse(t('finalResult2Text2') || '')}
         </p>
 
-        <p className={styles3.messageText}>
-          {parse(t('finalResult2Text3') || '')}
-        </p>
+        <p className={styles3.messageText}>{parse(t('finalResult2Text3') || '')}</p>
 
-        <div
-          className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles3.button2}`}
-        >
+        <div className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles3.button2}`}>
           <ButtonComponent
             text={t('finalResult3Text1')
               ?.replace('{total}', `${_general.totalAttempts}`)
-              ?.replace(
-                '{current}',
-                `${_general.totalAttempts - scormData.totalAttempts}`
-              )}
+              ?.replace('{current}', `${_general.totalAttempts - scormData.totalAttempts}`)}
             clickHandler={confirmationPopup}
           />
         </div>
@@ -322,10 +267,7 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
   const _fObj: { label: string; score: number }[] = [];
   let _avg = 0;
   Object.keys(valuesObj.tabs).forEach((_t) => {
-    _fObj.push({
-      label: t(valuesObj.tabs[_t].title),
-      score: scormData.tabs[_t]?.score || 0,
-    });
+    _fObj.push({ label: t(valuesObj.tabs[_t].title), score: scormData.tabs[_t]?.score || 0 });
     _avg += scormData.tabs[_t]?.score || 0;
   });
   console.log(_avg, Object.keys(valuesObj.tabs).length);
@@ -358,28 +300,16 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
         </div>
         {centralArea}
       </div>
-      <ConfirmationModal
-        isOpen={isModalOpen}
-        onClose={handleModalClose}
-        onStart={handleModalStart}
-      />
+      <ConfirmationModal isOpen={isModalOpen} onClose={handleModalClose} onStart={handleModalStart} />
 
       <div style={{ width: '100%', height: '100%' }}>
         <p className={styles.contactText}>
-          {t('contactText')}{' '}
-          <span className={styles.emailText}>{emailAddress}</span>
+          {t('contactText')} <span className={styles.emailText}>{emailAddress}</span>
         </p>
       </div>
-      <div
-        className='PDFDIV'
-        style={{ position: 'absolute', top: -10000, left: -10000 }}
-      >
+      <div className="PDFDIV" style={{ position: 'absolute', top: -10000, left: -10000 }}>
         <div ref={targetRef}>
-          <AssessmentReport
-            data={assessmentData}
-            images={images}
-            isPassed={isPassed}
-          />
+          <AssessmentReport data={assessmentData} images={images} isPassed={isPassed} />
         </div>
       </div>
     </div>
@@ -387,3 +317,4 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
 };
 
 export default CertificationCard;
+

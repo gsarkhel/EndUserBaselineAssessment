@@ -74,14 +74,7 @@ const MainPlayerComponent = (props: playerInterface) => {
 
   useEffect(() => {
     const unload = () => {
-      const _fObj: { [key: string]: number } = {};
-      let _avg = 0;
-      Object.keys(scormData.tabs).forEach((_t) => {
-        _fObj[_t] = scormData.tabs[_t].score;
-        _avg += scormData.tabs[_t].score;
-      });
-      _avg = _avg / Object.keys(scormData.tabs).length;
-      setScore(_avg);
+      setScore(undefined);
       terminateScorm();
     };
     window.addEventListener('unload', unload);

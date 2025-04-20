@@ -43,15 +43,33 @@ const ScromInfo: ScromInfoModel = {
   }),
 
   setScore: action((state, payload) => {
+    let completion_status = getData('cmi.completion_status'),
+      success_status = getData('cmi.success_status');
+
+    if (payload == undefined || isNaN(payload)) {
+      const _fObj: { [key: string]: number } = {};
+      let _sum = 0;
+      Object.keys(state.scormData.tabs).forEach((_t) => {
+        _fObj[_t] = state.scormData.tabs[_t].score;
+        _sum += state.scormData.tabs[_t].score;
+      });
+      payload = _sum / Object.keys(state.scormData.tabs).length;
+    }
+
     setMultipleData([
       { _params: 'cmi.score.raw', _value: payload },
       { _params: 'cmi.score.scaled', _value: payload / 100 },
-      { _params: 'cmi.success_status', _value: 'unknown' },
-      { _params: 'cmi.completion_status', _value: 'incomplete' },
       { _params: 'cmi.score.max', _value: 65 },
       { _params: 'cmi.score.min', _value: 0 },
-      { _params: 'cmi.exit', _value: 'suspend' },
+      // { _params: 'cmi.exit', _value: 'suspend' },
     ]);
+    if (completion_status !== 'completed') {
+      setData('cmi.completion_status', 'incomplete');
+      setData('cmi.exit', 'suspend');
+      if (!['passed', 'failed'].includes(success_status)) {
+        setData('cmi.success_status', 'unknown');
+      }
+    }
   }),
   setActiveSession: action((state, payload) => {
     state.isSessionActive = payload;
@@ -62,13 +80,13 @@ const ScromInfo: ScromInfoModel = {
     score = getData('cmi.score.raw');
     return score;
   }),
-  setComplition: thunk((actions, score, { getStoreState }) => {
-    const { valuesObj } = getStoreState().player;
+  setComplition: thunk((actions, payload, { getStoreState }) => {
+    const { score, isPassed } = payload;
     setMultipleData([
       { _params: 'cmi.completion_status', _value: 'completed' },
       { _params: 'cmi.score.raw', _value: score },
       { _params: 'cmi.score.scaled', _value: score / 100 },
-      { _params: 'cmi.success_status', _value: score > valuesObj.generalConfig.passingCriteria ? 'passed' : 'failed' },
+      { _params: 'cmi.success_status', _value: isPassed ? 'passed' : 'failed' },
       { _params: 'cmi.score.max', _value: 65 },
       { _params: 'cmi.score.min', _value: 0 },
       { _params: 'cmi.exit', _value: 'normal' },

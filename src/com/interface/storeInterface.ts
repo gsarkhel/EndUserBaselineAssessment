@@ -115,7 +115,7 @@ export interface ScromInfoModel {
   setScore: Action<ScromInfoModel, number>;
   setActiveSession: Action<ScromInfoModel, boolean>;
 
-  setComplition: Thunk<ScromInfoModel, any, undefined, storeModel>;
+  setComplition: Thunk<ScromInfoModel, { score: number; isPassed: boolean }, undefined, storeModel>;
   getComplition: Thunk<ScromInfoModel>;
   setInterations: Thunk<ScromInfoModel, { index: number; data: interactionData }, undefined, storeModel>;
 

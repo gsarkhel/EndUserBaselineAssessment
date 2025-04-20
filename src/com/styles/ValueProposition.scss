@@ -131,6 +131,7 @@
   background-color: transparent;
   cursor: pointer;
   outline: none;
+  margin: 0px;
 }
 
 /* Radio Button Specific Styling */
@@ -185,10 +186,10 @@
 // }
 
 /* Common hover and focus states */
-.customRadio:hover,
-.customCheckbox:hover {
-  // border-color: #00bfff;
-}
+// .customRadio:hover,
+// .customCheckbox:hover {
+//   // border-color: #00bfff;
+// }
 
 .customRadio:focus,
 .customCheckbox:focus {
