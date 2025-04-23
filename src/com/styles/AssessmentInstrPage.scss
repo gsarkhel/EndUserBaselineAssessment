@@ -1,15 +1,15 @@
 @use './colors' as colors;
 
 .mainContainer {
-  background-color: #000;
+  background-color: colors.$black;
   color: #fff;
   width: 965px;
-  height: 447px;
+  height: 290px;
   margin: auto;
   // border-top: 6px solid #00e14e;
   position: absolute;
   left: 25px;
-  top: 86px;
+  top: 161px;
   font-family: 'Sarabun-Regular';
   // opacity: 0.5;
   // padding: 20px;
@@ -30,7 +30,7 @@
   font-family: 'NunitoBold';
   font-size: 16PX;
   text-align: center;
-  color: #229549;
+  color: colors.$green1;
   margin-bottom: 10px;
 }
 .disContainer {

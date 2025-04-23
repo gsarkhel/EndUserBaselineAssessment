@@ -1,4 +1,6 @@
 
+@use './colors' as colors;
+
 .container {
   width: 100%;
   max-width: 638px;
@@ -59,7 +61,7 @@
   font-family: 'Lato';
   position: absolute;
   right: -50px;
-  color: #3ccd57;
+  color: colors.$green1;
   font-weight: 400;
   width: 35px;
   text-align: left;
@@ -70,7 +72,7 @@
   position: relative;
   top: 0;
   right: -50px;
-  color: #3ccd57;
+  color: colors.$green1;
   text-align: right;
   margin-top: 10px;
   font-size: 12px;
@@ -96,7 +98,7 @@
   display: inline-block;
   font-size: 24px;
   font-weight: bold;
-  color: #22c55e;
+  color: colors.$green1;
   padding-bottom: 5px;
 }
 
@@ -113,7 +115,7 @@
 }
 
 .headerTitle {
-  color: #4ade80;
+  color: colors.$green1;
   font-size: 18px;
   margin: 0;
   margin-left: 30px;

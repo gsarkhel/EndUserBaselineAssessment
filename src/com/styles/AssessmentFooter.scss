@@ -1,3 +1,5 @@
+@use './colors' as colors;
+
 .footerContainer {
     margin-top: 25px;
     text-align: center;
@@ -14,7 +16,7 @@
   
   .contactInfo {
     padding-top: 10px;
-    color: #4ade80;
+    color: colors.$green1;;
     font-size: 12px;
    padding-left: 52px;
    font-family: 'NunitoItalic';
