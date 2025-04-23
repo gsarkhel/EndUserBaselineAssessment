@@ -71,12 +71,13 @@ const AssessmentReport = (props: assessmentDataProps) => {
             <img src={images.pdflogo?.url} alt={''} />
           </div>
 
-          {/* <h3 id="fontLoader4" className={styles.headingtop}>End User Sellers: Building (Retail)</h3> */}
+          {/* <h3  className={styles.headingtop}>End User Sellers: Building (Retail)</h3> */}
 
-          <h3 id="fontLoader4" className={styles.headingtop}>
-            {assessmentData.overallScore > assessmentData.passingScore.overall
+          <h3 className={styles.headingtop}>
+            {/* {assessmentData.overallScore > assessmentData.passingScore.overall
               ? 'End User Sellers: Building (Retail)'
-              : 'End User Sellers: Cloud & Service Providers (Colocation)'}
+              : 'End User Sellers: Cloud & Service Providers(Colocation)'} */}
+            End User Sellers: Cloud & Service Providers(Colocation)
           </h3>
           <div className={styles.backDiv} style={{ height: height }}></div>
           <div className={styles.innerCont}>
@@ -91,7 +92,7 @@ const AssessmentReport = (props: assessmentDataProps) => {
             <AssessmentFooter overallScore={assessmentData.overallScore} />
           </div>
           <div className={styles.timerContainer}>
-            <p>Generated:1/30/2025, 7:30:37 PM</p>
+            <p>Generated:{new Date().toLocaleString()}</p>
           </div>
         </div>
       </div>

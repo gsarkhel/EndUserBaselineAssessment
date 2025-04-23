@@ -30,9 +30,7 @@ const SectionScores = (props: SectionScoresProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.headerContainer}>
-        <h1 className={styles.headerTitle} id="fontLoader3">
-          Section wise Score
-        </h1>
+        <h1 className={styles.headerTitle}>Section wise Score</h1>
       </div>
 
       <div className={styles.strline}>
@@ -53,9 +51,7 @@ const SectionScores = (props: SectionScoresProps) => {
         ))}
       </div>
       {passingScore && (
-        <div className={styles.passingScoreNote}>
-          *Passing Score(Overall+Section): {passingScore.overall}%
-        </div>
+        <div className={styles.passingScoreNote}>*Passing Score(Overall+Section): {passingScore.overall}%</div>
       )}
     </div>
   );

@@ -14,8 +14,9 @@ interface AssessmentInterface {
 
 const AssessmentInstrPage = (props: AssessmentInterface) => {
   const { title = '', description = '', clickHandler } = props;
-
+  
   return (
+    <div className={styles.main}>
     <div className={styles.mainContainer}>
       <h2 className={styles.title}>{t(title)}</h2>
       <div className={styles.disContainer}>{parse(t(description) || '')}</div>
@@ -23,8 +24,8 @@ const AssessmentInstrPage = (props: AssessmentInterface) => {
         <ButtonComponent text={t('begin')} clickHandler={clickHandler} />
       </div>
     </div>
+    </div>
   );
 };
 
 export default AssessmentInstrPage;
-

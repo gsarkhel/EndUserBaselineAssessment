@@ -1,23 +1,23 @@
-@use './colors' as colors;
-
 .footerContainer {
-    margin-top: 25px;
-    text-align: center;
-    //padding: 0 60px;
-    font-family: 'Nunito';
-  }
-  
-  .footerText {
-    color: white;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 18px;
-  }
-  
-  .contactInfo {
-    padding-top: 10px;
-    color: colors.$green1;;
-    font-size: 12px;
-   padding-left: 52px;
-   font-family: 'NunitoItalic';
-  }
+  margin-top: 25px;
+  text-align: center;
+  //padding: 0 60px;
+  font-family: 'Nunito';
+}
+
+.footerText {
+  color: white;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 0px 50px;
+  font-size: 14pt;
+}
+
+.contactInfo {
+  padding-top: 10px;
+  color: #4ade80;
+  font-size: 11pt;
+  padding-left: 22px;
+  font-family: 'NunitoItalic';
+}
+

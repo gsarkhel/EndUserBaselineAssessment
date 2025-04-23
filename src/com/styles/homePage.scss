@@ -1,36 +1,62 @@
 @use './colors' as colors;
 
+.main {
+  position: relative;
+  height: 485px; // Account for footer height and padding
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .mainContainer {
   background-color: colors.$black;
   color: colors.$white;
   width: 697px;
-  height: 250px;
-  margin: auto;
+  max-height: 80vh; // Prevent going too far down
+  // margin: 50px 0 0 113px;
   border-top: 6px solid colors.$green1;
-  position: absolute;
-  left: 55px;
-  top: 135px;
-  margin-left: 113px;
-  margin-top: 48px;
+  padding: 45px 35px;
   font-family: 'Sarabun-Regular';
-  // opacity: 0;
-  animation: slideInRight 0.5s ease-in-out;
+  opacity: 0.75;
+  animation: fadeIn 0.5s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 70px; // Add padding at bottom to make room for button
 }
 
-@keyframes slideInRight {
+.descriptionContainer {
+  overflow-y: auto;
+  max-height: 35vh; // Reduced to ensure button stays visible
+  margin-bottom: 20px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+}
+
+@keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateX(30px);
   }
   to {
-    opacity: 1;
+    opacity: 0.75;
+    transform: translateX(0);
   }
 }
 
 .mainContainer h1 {
   color: colors.$white;
-  padding: 0px 50px 0px 45px;
-  margin-top:0px;
-  margin-bottom: 0;
+  margin: 0;
   font-family: 'NunitoBold';
   font-size: 14px;
   font-weight: bold;
@@ -38,8 +64,7 @@
 
 .mainContainer h3 {
   color: colors.$green1;
-  padding: 10px 45px 0px 45px;
-  margin-bottom: 0;
+  margin: 10px 0 0 0;
   font-family: 'NunitoBold';
   font-size: 16px;
   font-weight: normal;
@@ -47,33 +72,27 @@
 
 .mainContainer p {
   color: colors.$white;
-  padding: 0px 45px 0px 45px;
-  margin-top: 20px;
+  margin: 15px 0 20px 0;
   font-family: 'Nunito';
   font-size: 14px;
   line-height: 1.5;
-  margin-bottom: 0;
 }
 
 .mainContainer button {
-//   background-color: colors.$green1;
-//   font-size: 22px;
-//  width: 157px;
-// height: 35px;
-//   border-radius: 30px;
-// color: #000;
-//  border: none;
-//  cursor: pointer;
-//  display: block;
-//   margin:15px auto 0;
-font-family: 'Nunito';
-font-size: 14px;
- }
+  font-family: 'Nunito';
+  font-size: 14px;
+  background-color: colors.$green1;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  padding: 8px 25px; // Added proper padding for the button
+}
 
 /* Add horizontal line styling */
 .greenLine {
   height: 4px;
   background-color: colors.$green1;
   width: 100%;
-  margin-top: 15px;
+  margin-top: 10px;
 }
+

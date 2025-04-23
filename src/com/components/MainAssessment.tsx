@@ -17,6 +17,7 @@ interface AssessmentPropsInterface {
 const MainAssessment = (props: AssessmentPropsInterface) => {
   const { clickHandler, qText = '', options = [], optionType = 'text', type, selectedAns } = props;
   const [selectedOption, setSelectedOption] = useState<number[]>([]);
+  const [optionsOrder, setOptionsOrder] = useState<number[]>([]);
 
   const { images } = globalStore.useStoreState((st) => st.player);
   const { recheckMode } = globalStore.useStoreState((st) => st.activity);
@@ -48,6 +49,27 @@ const MainAssessment = (props: AssessmentPropsInterface) => {
       divRef.current?.classList.remove(styles.fadeInAnim);
     };
   }, [qText, JSON.stringify(options)]);
+  const shuffleArrayAndCheck = (_arr: any[]) => {
+    let shuffledArray = [..._arr];
+
+    while (_arr.every((value, index) => value === shuffledArray[index])) {
+      shuffledArray = _arr
+        .map((value) => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value);
+    }
+
+    return shuffledArray;
+  };
+  useEffect(() => {
+    const _arr = new Array(options.length).fill(6).map((_a, _i) => _i);
+    setOptionsOrder(shuffleArrayAndCheck(_arr));
+  }, [JSON.stringify(options)]);
+
+  const submitQuestions = () => {
+    const opt = selectedOption.map((_index) => optionsOrder[_index]);
+    clickHandler(opt);
+  };
 
   return (
     <div>
@@ -57,7 +79,7 @@ const MainAssessment = (props: AssessmentPropsInterface) => {
             <h2 className={styles.title}>{t(qText)}</h2>
 
             <div className={styles.optionsContainer}>
-              {options?.map((option, index) => (
+              {optionsOrder?.map((optionNum, index) => (
                 <div
                   key={index}
                   className={`${styles.optionCard} ${selectedOption.includes(index) && styles.selected} ${
@@ -90,10 +112,14 @@ const MainAssessment = (props: AssessmentPropsInterface) => {
                   </div>
 
                   <label htmlFor="assessmentOption" className={styles.optionText}>
-                    {optionType == 'text' && t(option)}
+                    {optionType == 'text' && t(options[optionNum])}
                     {optionType == 'image' && (
                       <div className={styles.imageContainer}>
-                        <img src={images[option]?.url} alt={`Option ${index + 1}`} className={styles.optionImage} />
+                        <img
+                          src={images[options[optionNum]]?.url}
+                          alt={`Option ${index + 1}`}
+                          className={styles.optionImage}
+                        />
                       </div>
                     )}
                   </label>
@@ -103,11 +129,7 @@ const MainAssessment = (props: AssessmentPropsInterface) => {
           </div>
 
           <div className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles.button1}`}>
-            <ButtonComponent
-              text={t('submit1')}
-              disabled={selectedOption.length == 0}
-              clickHandler={() => clickHandler(selectedOption)}
-            />
+            <ButtonComponent text={t('submit1')} disabled={selectedOption.length == 0} clickHandler={submitQuestions} />
           </div>
         </div>
       </div>

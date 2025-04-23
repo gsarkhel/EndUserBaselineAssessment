@@ -85,8 +85,16 @@ const ActivityController = (props: activityControllerPropsInterface) => {
   useEffect(() => {
     let _ind = scormData.tabs[tabs[activeTab]?.id]?.questions?.[activeQuestion];
     let _qData = valuesObj.tabs[tabs[activeTab]?.id]?.questionBank?.[_ind];
-
-    _qData && console.log('Answers :- ', _qData.ans);
+    if (_qData) {
+      if (typeof _qData.ans === 'object') {
+        console.log(
+          'Answers :- ',
+          _qData.ans.map((_op: number) => t(_qData.opt[_op]))
+        );
+      } else {
+        console.log('Answers :- ', t(_qData.opt[_qData.ans]));
+      }
+    }
   }, [activeQuestion]);
 
   const handleTabChange = (tabId: string) => {
@@ -168,6 +176,8 @@ const ActivityController = (props: activityControllerPropsInterface) => {
       _optStr = [_ques.opt[_selected[0]]];
     }
 
+    console.log(_score, 'score');
+
     let _qCount = activeQuestion || 0;
     Object.keys(scormData.tabs).forEach((_t, _ind) => {
       if (_ind < activeTab) {
@@ -179,7 +189,10 @@ const ActivityController = (props: activityControllerPropsInterface) => {
     setInterations({
       index: _qCount,
       data: {
-        id: `attempt_${scormData.totalAttempts+1}_${t(tabs[activeTab]?.title).replaceAll(' ', '_').replaceAll('&', 'n').replaceAll(',', '')}_${_nQues}`,
+        id: `attempt_${scormData.totalAttempts + 1}_${t(tabs[activeTab]?.title)
+          .replaceAll(' ', '_')
+          .replaceAll('&', 'n')
+          .replaceAll(',', '')}_${_nQues}`,
         response: _optStr.map((_t) => t(_t)),
         feedback: _ques.weightage ? 'neutral' : _score > 0 ? 'correct' : 'incorrect',
         answer: (typeof _ques.ans === 'object'

@@ -38,7 +38,7 @@ const AssessmentFooter: React.FC<AssessmentFooterProps> = ({
           <p  className={styles.footerText }>
             We have handpicked trainings for you that will help you excel in the
             sections where you scored less than 65%. These trainings will also
-            be assigned to you on My LearningLink.
+            be assigned to you on My LearningLink within the next 24 hours.
           </p>
           <p className={styles.footerText}>
             We highly recommend you to complete these trainings before you

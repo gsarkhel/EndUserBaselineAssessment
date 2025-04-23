@@ -1,0 +1,51 @@
+.progressContainer {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  // width: 660px;
+  padding: 0 20px;
+  gap: 15px;
+  font-family: 'Lato';
+}
+
+.progressCircleContainer {
+  flex-shrink: 0;
+  background-color: transparent;
+}
+
+.progressCircle {
+  transform: rotate(-90deg);
+  position: relative;
+}
+
+.progressBg {
+  stroke: #2a2a2a;
+}
+
+.progressBar {
+  transition: stroke-dashoffset 0.5s ease-in-out;
+}
+
+.textContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(90deg);
+}
+
+.percentageText {
+  font-size: 22pt;
+  color: white;
+  font-family: 'NunitoSemiBold';
+}
+
+.resultMessage {
+  font-size: 14pt;
+  font-family: 'NunitoSemiBold';
+  // font-weight: bold;
+  max-width: 210px;
+  text-align: left;
+}
+

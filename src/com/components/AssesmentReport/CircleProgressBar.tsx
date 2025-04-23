@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../../styles/CircleProgress.scss';
+import styles from '../../styles/CircleProgressCertificate.scss';
 
 interface CircularProgressBarPropsInterface {
   value?: number;
@@ -59,7 +59,7 @@ const CircularProgressBar = (props: CircularProgressBarPropsInterface) => {
           <circle cx="100" cy="100" r="62" fill="white" stroke="none" />
 
           {/* Faded gray track */}
-          <circle
+          {/* <circle
             className={styles.progressBg}
             cx="100"
             cy="100"
@@ -67,7 +67,7 @@ const CircularProgressBar = (props: CircularProgressBarPropsInterface) => {
             strokeWidth="16"
             fill="transparent"
             stroke="#2a2a2a"
-          />
+          /> */}
 
           {/* Green progress bar */}
           <circle
@@ -85,10 +85,7 @@ const CircularProgressBar = (props: CircularProgressBarPropsInterface) => {
 
           <foreignObject x="0" y="0" width="200" height="200">
             <div className={styles.textContainer}>
-              <span
-                className={styles.percentageText}
-                style={{ color: progressColor }}
-              >
+              <span className={styles.percentageText} style={{ color: progressColor }}>
                 {Math.round(progress)}%
               </span>
             </div>
@@ -103,3 +100,4 @@ const CircularProgressBar = (props: CircularProgressBarPropsInterface) => {
 };
 
 export default CircularProgressBar;
+

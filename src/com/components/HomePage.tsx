@@ -15,18 +15,21 @@ interface homepagePropsInterface {
 
 const HomePage = (props: homepagePropsInterface) => {
   const { title = '', heading = '', description = '', clickHandler } = props;
-
+  
   return (
-    <div className={styles.mainContainer}>
-      <h3>{t(heading)}</h3>
-      <h1>{t(title)}</h1>
-      <p>{parse(t(description) || '')}</p>
-      <div className={`${parentStyles.fullWidth} ${parentStyles.displayCenter}`}>
-        <ButtonComponent text={t('continue')} clickHandler={clickHandler} />
+    <div className={styles.main}>
+      <div className={styles.mainContainer}>
+        <h3>{t(heading)}</h3>
+        <h1>{t(title)}</h1>
+        <div className={styles.descriptionContainer}>
+          <p>{parse(t(description) || '')}</p>
+        </div>
+        <div className={styles.buttonWrapper}>
+          <ButtonComponent text={t('continue')} clickHandler={clickHandler} />
+        </div>
       </div>
     </div>
   );
 };
 
 export default HomePage;
-

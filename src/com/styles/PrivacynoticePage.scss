@@ -4,14 +4,17 @@
   background-color: c.$white;
   color: c.$black;
   width: 965px;
-  height: 390px;
+  height: auto;
   margin: auto;
   position: absolute;
   left: 25px;
-  top: 109px;
+  top: 86px;
   // font-family: 'Nunito';
   // font-size: 12px;
   animation: slideInRight 0.5s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes slideInRight {
@@ -37,15 +40,25 @@ font-family: 'Nunito';
 }
 
 .mainContainer button {
-  // background-color: c.$green1;
-    font-family: 'Nunito';
-  padding-top: 2PX;
-   font-size: 14px;
-  // width: 174px;
-  // height: 35px;
-  // border-radius: 30px;
-  // color: #000;
+  // // background-color: c.$green1;
+  //   font-family: 'Nunito';
+  // padding-top: 2PX;
+  //  font-size: 14px;
+  // // width: 174px;
+  // // height: 35px;
+
+
+  // // border-radius: 30px;
+  // // color: #000;
+  // bottom: 15px;
+
+  font-family: 'Nunito';
+  font-size: 14px;
+  padding: 5px 15px;
+  align-self: center;
+  margin-top: 10px;
   bottom: 15px;
+  position: relative;
 }
 
 .disContainer {
