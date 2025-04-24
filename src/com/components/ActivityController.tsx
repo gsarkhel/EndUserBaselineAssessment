@@ -58,7 +58,7 @@ const ActivityController = (props: activityControllerPropsInterface) => {
         }
       });
 
-      setProgress((_qCount / _totalCount) * 100);
+      setProgress((_qCount / (_totalCount - 1)) * 100);
     }
   }, [activeQuestion, activeTab, tabs]);
 

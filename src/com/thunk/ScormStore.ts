@@ -65,10 +65,10 @@ const ScromInfo: ScromInfoModel = {
     ]);
     if (completion_status !== 'completed') {
       setData('cmi.completion_status', 'incomplete');
+    }
+    if (!['passed', 'failed'].includes(success_status)) {
+      setData('cmi.success_status', 'unknown');
       setData('cmi.exit', 'suspend');
-      if (!['passed', 'failed'].includes(success_status)) {
-        setData('cmi.success_status', 'unknown');
-      }
     }
   }),
   setActiveSession: action((state, payload) => {
@@ -81,9 +81,13 @@ const ScromInfo: ScromInfoModel = {
     return score;
   }),
   setComplition: thunk((actions, payload, { getStoreState }) => {
-    const { score, isPassed } = payload;
+    const { score, isPassed, completed } = payload;
+    let completion_status = getData('cmi.completion_status');
     setMultipleData([
-      { _params: 'cmi.completion_status', _value: 'completed' },
+      {
+        _params: 'cmi.completion_status',
+        _value: completed || completion_status === 'completed' ? 'completed' : 'incomplete',
+      },
       { _params: 'cmi.score.raw', _value: score },
       { _params: 'cmi.score.scaled', _value: score / 100 },
       { _params: 'cmi.success_status', _value: isPassed ? 'passed' : 'failed' },

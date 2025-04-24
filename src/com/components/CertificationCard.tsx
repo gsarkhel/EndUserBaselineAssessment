@@ -164,9 +164,11 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
   };
 
   useEffect(() => {
-    console.log('here');
-
-    setComplition({ score: average, isPassed: isPassed });
+    setComplition({
+      score: average,
+      isPassed: isPassed,
+      completed: isPassed || _general.totalAttempts <= scormData.totalAttempts,
+    });
   }, []);
 
   const closeCourse = () => {
@@ -195,7 +197,7 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
         {parse(t('finalResult2Text2') || '')}
       </p>
       <p className={styles2.messageText}>{parse(t('finalResult2Text3') || '')}</p>
-      {scormData.totalAttempts < 6 ? (
+      {scormData.totalAttempts < _general.totalAttempts ? (
         <div className={styles2.countdownSection}>
           <div className={styles2.clockIconContainer}>
             <img src={images.stopWatch?.url} alt="Clock Icon" />
