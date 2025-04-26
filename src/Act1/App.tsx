@@ -27,7 +27,6 @@ const App = () => {
     const _general = valuesObj.generalConfig;
     const _tabs = valuesObj.tabs;
     const _scormRep = { ...scormData };
-    console.log('questionGenerate 1');
 
     Object.keys(_tabs).map((_t) => {
       if (

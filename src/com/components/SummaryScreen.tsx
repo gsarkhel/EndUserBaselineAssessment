@@ -18,8 +18,6 @@ const SummaryScreen = (props: summaryScreenPropsInterface) => {
   const { title = '', description = '', src = '', clickHandler } = props;
   const { images } = globalStore.useStoreState((store) => store.player);
 
-  console.log('thi is src', src, images);
-
   return (
     <div>
       <div className={styles.contentArea}>

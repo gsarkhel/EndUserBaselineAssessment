@@ -50,7 +50,6 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
   // const hasTimeIntervalPassed = startScreen == 'results' && scormData.totalAttempts > 0 ? true : Date.now() >= lastAttemptDate?.getTime() + timeIntervalInMs;
   const hasTimeIntervalPassed =
     scormData.totalAttempts > 0 ? true : Date.now() >= lastAttemptDate?.getTime() + timeIntervalInMs;
-  console.log(startScreen);
 
   const pdfRef = useRef<HTMLDivElement>(null);
 
@@ -95,7 +94,6 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
       Object.keys(_sc.tabs).forEach((_y, _ind) => {
         _sc.tabs[_y].score = Math.random() * 35 + 65;
       });
-      console.log(_sc);
 
       setData(_sc);
     };
@@ -272,7 +270,6 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
     _fObj.push({ label: t(valuesObj.tabs[_t].title), score: scormData.tabs[_t]?.score || 0 });
     _avg += scormData.tabs[_t]?.score || 0;
   });
-  console.log(_avg, Object.keys(valuesObj.tabs).length);
 
   _avg = _avg / Object.keys(valuesObj.tabs).length;
 
@@ -283,8 +280,6 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
       overall: valuesObj.generalConfig.passingCriteria,
     },
   };
-
-  console.log(assessmentData, 'assessmentData');
 
   return (
     <div className={styles.certificationCard}>

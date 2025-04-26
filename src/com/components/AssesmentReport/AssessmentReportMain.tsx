@@ -50,7 +50,6 @@ const AssessmentReport = (props: assessmentDataProps) => {
   //     </Page>
   //   </Document>
   // );
-  console.log(height, 'height');
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
