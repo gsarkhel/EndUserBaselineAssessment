@@ -194,7 +194,16 @@ const ActivityController = (props: activityControllerPropsInterface) => {
           .replaceAll('&', 'n')
           .replaceAll(',', '')}_${_nQues}`,
         response: _optStr.map((_t) => t(_t)),
-        feedback: _ques.weightage ? 'neutral' : _score > 0 ? 'correct' : 'incorrect',
+        feedback:
+          _ques.weightage !== undefined
+            ? _ques.weightage == 0
+              ? 'incorrect'
+              : _ques.weightage == 1
+              ? 'correct'
+              : 'neutral'
+            : _score > 0
+            ? 'correct'
+            : 'incorrect',
         answer: (typeof _ques.ans === 'object'
           ? _ques.ans
           : _ques.ans == undefined

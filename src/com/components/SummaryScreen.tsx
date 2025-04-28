@@ -22,12 +22,8 @@ const SummaryScreen = (props: summaryScreenPropsInterface) => {
     <div>
       <div className={styles.contentArea}>
         <div className={styles.contentContainer}>
-          <h1 className={styles.segmentTitle}>
-            {t(title)}
-          </h1>
-          <div className={styles.segmentDescription}>
-            {parse(t(description) || '')}
-          </div>
+          <h1 className={styles.segmentTitle}>{t(title)}</h1>
+          <div className={styles.segmentDescription}>{parse(t(description) || '')}</div>
           <div className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles.button1} `}>
             <ButtonComponent text={t('submit')} clickHandler={clickHandler} />
           </div>

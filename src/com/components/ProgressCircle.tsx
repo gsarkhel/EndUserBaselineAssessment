@@ -4,9 +4,10 @@ import '../../../public/common/assets/fonts/fonts.css';
 
 interface ScoreIndicatorProps {
   score: number;
+  isPassed: boolean;
 }
 
-const ResultProgressCircle: React.FC<ScoreIndicatorProps> = ({ score }) => {
+const ResultProgressCircle: React.FC<ScoreIndicatorProps> = ({ score, isPassed }) => {
   const [animatedScore, setAnimatedScore] = useState(0);
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const ResultProgressCircle: React.FC<ScoreIndicatorProps> = ({ score }) => {
   const fillOffset = circumference - (circumference * fillPercentage) / 100;
 
   // Determine color based on score threshold
-  const progressColor = score < 50 ? '#FF9500' : '#4ADE80';
+  const progressColor = isPassed ? '#FF9500' : '#4ADE80';
 
   return (
     <div className={styles.scoreContainer}>

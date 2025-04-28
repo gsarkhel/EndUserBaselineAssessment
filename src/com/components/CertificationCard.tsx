@@ -286,7 +286,7 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
       <div style={{ width: '100%', display: 'flex', height: '425px' }}>
         <div className={styles.leftSection}>
           <div className={styles.boxContainer}>
-            <ResultProgressCircle score={average || 0} />
+            <ResultProgressCircle score={average || 0} isPassed={isPassed} />
           </div>
           <div className={styles.boxContainer1}>
             <ProgressBar {...scores} />
