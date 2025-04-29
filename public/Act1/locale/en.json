@@ -27,7 +27,7 @@
   "submit": "Start",
   "submit1": "Submit",
 
-"s1q1": "Which of the below describes the value proposition of the C&SP Segment?",
+  "s1q1": "Which of the below describes the value proposition of the C&SP Segment?",
   "s1q1option1": "Provide unique domain expertise in Building, Power and IT to help clients in their sustainable and digital journey through all phases of the facility - design, build, operate, maintain.",
   "s1q1option2": "Transform operations to improve factory productivity while increasing flexibility with our smart manufacturing solutions.",
   "s1q1option3": "Reduce environmental footprint and increase efficiency to make sure your production environment is safe, available, efficient and green.",
@@ -424,7 +424,7 @@
   "s3q31option3": "I will discuss with the prospect what they hope to achieve by implementing this solution.",
   "s3q31option4": "I will suggest additional requirements that would benefit the customer and set me apart from the competition.",
 
-"s4q1": "What are the two main categories of software?",
+  "s4q1": "What are the two main categories of software?",
   "s4q1option1": "Hardware and Firmware",
   "s4q1option2": "Applications and System Software",
   "s4q1option3": "Networking Software and Utility Software",
@@ -673,6 +673,8 @@
   "salesToolsSectionSummary": "Sales Tools & Processes Section Summary",
   "questionsAttempted": "Questions Attempted: ",
   "correctResponses": "Correct Responses: ",
+  "pointsValue": "Point Values: ",
+  "pointsNote": "Note: Some questions in this section were weighted, with answers assigned different point values. The more points you scored, the higher your percentage result.",
   "segmentTitle": "Segment",
   "segmentDescsecond1": "The overarching knowledge of C&SP (Colocation) segment is key to the success of your role as it helps you uncover your customers' business and how we, at Schneider Electric, can help them.",
   "segmentDescsecond2": "The questions in this section will focus across EcoStruxure Power,\nBuilding and IT (Data Centre) offer overview, key customer\nquestions and persona benefits.",

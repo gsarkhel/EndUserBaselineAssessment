@@ -261,6 +261,8 @@ const ActivityController = (props: activityControllerPropsInterface) => {
   };
 
   let centeralArea;
+
+  let weightagePresent = valuesObj.tabs[tabs[activeTab]?.id]?.questionBank?.some((_q) => _q.weightage !== undefined);
   if (tabs.length == 0) {
     centeralArea = 'No Tabs Data';
   } else if (page == 'start') {
@@ -295,8 +297,13 @@ const ActivityController = (props: activityControllerPropsInterface) => {
         clickHandler={finalLocation}
         title={tabs[activeTab]?.title}
         questionsAttempted={scormData.tabs[tabs[activeTab]?.id].questions.length}
-        correctResponses={scormData.tabs[tabs[activeTab]?.id].correctCount}
+        correctResponses={
+          weightagePresent
+            ? scormData.tabs[tabs[activeTab]?.id].score / 10
+            : scormData.tabs[tabs[activeTab]?.id].correctCount
+        }
         percentage={scormData.tabs[tabs[activeTab]?.id].score}
+        weightagePresent={weightagePresent}
       />
     );
   } else if (page == 'resultRetake') {
@@ -305,8 +312,13 @@ const ActivityController = (props: activityControllerPropsInterface) => {
         clickHandler={generateQuestionAndStart}
         title={tabs[activeTab]?.title}
         questionsAttempted={scormData.tabs[tabs[activeTab]?.id].questions.length}
-        correctResponses={scormData.tabs[tabs[activeTab]?.id].correctCount}
+        correctResponses={
+          weightagePresent
+            ? scormData.tabs[tabs[activeTab]?.id].score / 10
+            : scormData.tabs[tabs[activeTab]?.id].correctCount
+        }
         percentage={scormData.tabs[tabs[activeTab]?.id].score}
+        weightagePresent={weightagePresent}
       />
     );
   }

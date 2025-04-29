@@ -13,11 +13,12 @@ interface ResultsCardProps {
   questionsAttempted?: number;
   correctResponses?: number;
   percentage?: number;
+  weightagePresent?: boolean;
   clickHandler?: () => void;
 }
 
 const ResultsCardRetake = (props: ResultsCardProps) => {
-  const { questionsAttempted = 15, correctResponses = 2, title = '', clickHandler } = props;
+  const { questionsAttempted = 15, correctResponses = 2, title = '', clickHandler, weightagePresent = false } = props;
 
   const [animatedPercentage, setAnimatedPercentage] = useState(0);
 
@@ -83,13 +84,19 @@ const ResultsCardRetake = (props: ResultsCardProps) => {
 
             <div className={styles.statRow}>
               <h2 id="fontLoader4" className={styles.statLabel}>
-                {t('correctResponses')}
+                {weightagePresent ? t('pointsValue') : t('correctResponses')}
               </h2>
               <span id="fontLoader4" className={styles.statValue}>
                 {correctResponses}
               </span>
             </div>
             <div className={styles.divider}></div>
+
+            {weightagePresent && (
+              <div className={styles.noteRow}>
+                <span className={styles.noteValue}>{t('pointsNote')}</span>
+              </div>
+            )}
           </div>
 
           {/* Right Section - Progress Circle */}

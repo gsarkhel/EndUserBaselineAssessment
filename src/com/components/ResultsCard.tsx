@@ -13,11 +13,12 @@ interface ResultsCardProps {
   questionsAttempted?: number;
   correctResponses?: number;
   percentage?: number;
+  weightagePresent?: boolean;
   clickHandler?: () => void;
 }
 
 const ResultsCard = (props: ResultsCardProps) => {
-  const { questionsAttempted = 15, correctResponses = 2, title = '', clickHandler } = props;
+  const { questionsAttempted = 15, correctResponses = 2, title = '', clickHandler, weightagePresent = false } = props;
 
   const [animatedPercentage, setAnimatedPercentage] = useState(0);
 
@@ -62,40 +63,33 @@ const ResultsCard = (props: ResultsCardProps) => {
   return (
     <div className={styles.contentArea}>
       <div className={styles.contentContainer}>
-        <h1 className={`${styles.title}`}>
-          {t(title)}: Section Summary
-        </h1>
+        <h1 className={`${styles.title}`}>{t(title)}: Section Summary</h1>
 
         <div className={styles.card}>
           {/* Left Section - Statistics */}
           <div className={styles.statsSection}>
             <div className={styles.statRow}>
-              <h2 className={styles.statLabel}>
-                {t('questionsAttempted')}
-              </h2>
-              <span  className={styles.statValue}>
-                {questionsAttempted}
-              </span>
+              <h2 className={styles.statLabel}>{t('questionsAttempted')}</h2>
+              <span className={styles.statValue}>{questionsAttempted}</span>
             </div>
 
             <div className={styles.divider}></div>
 
             <div className={styles.statRow}>
-              <h2  className={styles.statLabel}>
-                {t('correctResponses')}
-              </h2>
-              <span  className={styles.statValue}>
-                {correctResponses}
-              </span>
+              <h2 className={styles.statLabel}>{weightagePresent ? t('pointsValue') : t('correctResponses')}</h2>
+              <span className={styles.statValue}>{correctResponses}</span>
             </div>
             <div className={styles.divider}></div>
+            {weightagePresent && (
+              <div className={styles.noteRow}>
+                <span className={styles.noteValue}>{t('pointsNote')}</span>
+              </div>
+            )}
           </div>
 
           {/* Right Section - Progress Circle */}
           <div className={styles.progressSection}>
-            <h3  style={{ marginTop: '0', marginBottom: '13px', }}>
-              Your score
-            </h3>
+            <h3 style={{ marginTop: '0', marginBottom: '13px' }}>Your score</h3>
 
             {/* <div className={styles.progressContainer}>
               <div className={styles.backgroundCircle}></div>
