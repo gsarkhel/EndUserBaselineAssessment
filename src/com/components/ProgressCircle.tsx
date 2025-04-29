@@ -42,7 +42,7 @@ const ResultProgressCircle: React.FC<ScoreIndicatorProps> = ({ score, isPassed }
   const fillOffset = circumference - (circumference * fillPercentage) / 100;
 
   // Determine color based on score threshold
-  const progressColor = isPassed ? '#FF9500' : '#4ADE80';
+  const progressColor = isPassed ? '#4ADE80' : '#FF9500';
 
   return (
     <div className={styles.scoreContainer}>
