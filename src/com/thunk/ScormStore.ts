@@ -154,7 +154,7 @@ const ScromInfo: ScromInfoModel = {
         _params: `cmi.interactions.${index}.description`,
         _value: data?.question.replaceAll('(', '').replaceAll(')', '').replaceAll(' ', '_'),
       },
-      { _params: `cmi.interactions.${index}.weighting`, _value: data?.weightage || 10 },
+      { _params: `cmi.interactions.${index}.weighting`, _value: data?.weightage },
       {
         _params: `cmi.interactions.${index}.objectives.0.id`,
         _value: t(valuesObj.generalConfig.activityName).replaceAll('(', '').replaceAll(')', '').replaceAll(' ', '_'),

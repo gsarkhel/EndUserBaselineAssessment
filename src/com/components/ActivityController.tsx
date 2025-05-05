@@ -171,12 +171,12 @@ const ActivityController = (props: activityControllerPropsInterface) => {
     } else if (typeof _ques.ans === 'object') {
       _score = JSON.stringify(_selected.sort()) == JSON.stringify(_ques.ans) ? _tScore : 0;
       _optStr = _selected.map((_t) => _ques.opt[_t]);
+      _w = _score == 0 ? 0 : 1;
     } else {
       _score = _selected[0] == _ques.ans ? _tScore : 0;
       _optStr = [_ques.opt[_selected[0]]];
+      _w = _score == 0 ? 0 : 1;
     }
-
-    console.log(_score, 'score');
 
     let _qCount = activeQuestion || 0;
     Object.keys(scormData.tabs).forEach((_t, _ind) => {
@@ -196,9 +196,9 @@ const ActivityController = (props: activityControllerPropsInterface) => {
         response: _optStr.map((_t) => t(_t)),
         feedback:
           _ques.weightage !== undefined
-            ? _ques.weightage == 0
+            ? _w == 0
               ? 'incorrect'
-              : _ques.weightage == 1
+              : _w == 1
               ? 'correct'
               : 'neutral'
             : _score > 0
