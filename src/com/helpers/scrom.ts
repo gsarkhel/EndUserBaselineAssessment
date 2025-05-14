@@ -21,10 +21,15 @@ export const setData = (_params: string, _value?: string | boolean | number) => 
 
 export const setMultipleData = (_obj: { _params: string; _value?: string | boolean | number }[]) => {
   if (scorm.isActive) {
-    _obj.forEach(({ _params, _value }) => {
-      scorm.set(_params, _value);
-    });
-    scorm.commit();
+    try {
+      _obj.forEach(({ _params, _value }) => {
+        scorm.set(_params, _value);
+      });
+    } catch (e) {
+      console.error('Error saving Data', e);
+    } finally {
+      scorm.commit();
+    }
   }
 };
 

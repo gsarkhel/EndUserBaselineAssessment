@@ -3,23 +3,27 @@
 .mainContainer {
   background-color: colors.$black;
   color: #fff;
-  width: 965px;
-  height: 290px;
+  width: 925px;
+  height: 410px;
   margin: auto;
   // border-top: 6px solid #00e14e;
   position: absolute;
-  left: 25px;
-  top: 161px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   font-family: 'Sarabun-Regular';
   // opacity: 0.5;
   // padding: 20px;
   opacity: 1;
   animation: slideInRight 0.5s ease-in-out;
 }
+
 @keyframes slideInRight {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -32,6 +36,7 @@
   color: colors.$green1;
   margin-bottom: 10px;
 }
+
 .disContainer {
   font-family: 'Nunito';
   font-size: 12px;
@@ -56,13 +61,49 @@
   // border-radius: 30px;
   // color: #000;
 }
+
+.disContainer div {
+  float: right;
+  width: 250px;
+  height: 166px;
+  margin: 0 15px 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.disContainer div img {
+  width: 100%;
+  height: 100%;
+}
+
+.disContainer div span {
+  height: 30px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: colors.$orange;
+}
+
 .disContainer ul li {
-  margin-top: 0;
+  margin-bottom: 15px;
   line-height: 1.6;
 }
+
 .disContainer ul {
   margin-top: 10px;
   margin-bottom: 8px;
   margin-left: -15px;
 }
 
+.popUpHolder {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 90%;
+  background-color: rgba(0, 0, 0, 0.7);
+  align-content: flex-start;
+  justify-content: center;
+}

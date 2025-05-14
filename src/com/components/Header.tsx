@@ -1,8 +1,8 @@
-import React from 'react';
-import { t } from '../helpers/LanguageTranslator';
-import styles from '../styles/headerComp.scss';
-import globalStore from '../thunk';
-import '../../../public/common/assets/fonts/fonts.css';
+import React from "react";
+import { t } from "../helpers/LanguageTranslator";
+import styles from "../styles/headerComp.scss";
+import globalStore from "../thunk";
+import "../../../public/common/assets/fonts/fonts.css";
 
 // const Header = () => {
 //   return (
@@ -44,28 +44,37 @@ const Header: React.FC<AssessmentHeaderProps> = () => {
 
   return (
     <div className={styles.assessmentHeader}>
-      <h1 className={styles.assessmentTitle}>{t('headerText')}</h1>
+      <h1 className={styles.assessmentTitle}>{t("headerText")}</h1>
       <div className={styles.assessmentMetrics}>
         {showAttempt && attemptCount > 0 && (
           <div className={styles.metricItem}>
             <span className={styles.metricText}>
-              Attempt {attemptCount}/{attemptTotal}
+              {t("attemptHeader")
+                .replaceAll("{{attemptCount}}", `${attemptCount}`)
+                .replaceAll("{{attemptTotal}}", `${attemptTotal}`)}
             </span>
           </div>
         )}
 
         {showScore && (
           <div className={styles.metricItem}>
-            <span className={styles.metricText}>Total Score: {score}%</span>
+            <span className={styles.metricText}>
+              {t("totalScore")}: {score}%
+            </span>
           </div>
         )}
 
         {showProgress && (
           <div className={styles.metricItem1}>
             <div className={styles.progressContainer}>
-              <span className={styles.progressText}>Assessment Progress: {progress.toFixed(0)}%</span>
+              <span className={styles.progressText}>
+                {t("assessmentProgress")}: {progress.toFixed(0)}%
+              </span>
               <div className={styles.progressBar}>
-                <div className={styles.progressFill} style={{ width: `${progress}%` }}></div>
+                <div
+                  className={styles.progressFill}
+                  style={{ width: `${progress}%` }}
+                ></div>
               </div>
             </div>
           </div>
@@ -89,4 +98,3 @@ export default Header;
   progress={50}
 /> */
 }
-

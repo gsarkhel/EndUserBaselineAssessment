@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import styles from '../styles/ResultsCard.scss';
-import parentStyles from '../styles/commonStyles.scss';
-import ButtonComponent from './ButtonComponent';
-import { t } from '../helpers/LanguageTranslator';
-import '../../../public/common/assets/fonts/fonts.css';
+import React, { useState, useEffect } from "react";
+import styles from "../styles/ResultsCard.scss";
+import parentStyles from "../styles/commonStyles.scss";
+import ButtonComponent from "./ButtonComponent";
+import { t } from "../helpers/LanguageTranslator";
+import "../../../public/common/assets/fonts/fonts.css";
 // import CircularProgressBar from './Re';
-import CircularProgressBar from './ResultAnimatedCircle';
-import globalStore from '../thunk';
+import CircularProgressBar from "./ResultAnimatedCircle";
+import globalStore from "../thunk";
 
 interface ResultsCardProps {
   title?: string;
@@ -18,18 +18,29 @@ interface ResultsCardProps {
 }
 
 const ResultsCard = (props: ResultsCardProps) => {
-  const { questionsAttempted = 15, correctResponses = 2, title = '', clickHandler, weightagePresent = false } = props;
+  const {
+    questionsAttempted = 15,
+    correctResponses = 2,
+    title = "",
+    clickHandler,
+    weightagePresent = false,
+  } = props;
 
   const [animatedPercentage, setAnimatedPercentage] = useState(0);
 
   const { valuesObj } = globalStore.useStoreState((store) => store.player);
 
-  const percentage = props.percentage || Number(((correctResponses / questionsAttempted) * 100).toFixed(0));
+  const percentage =
+    props.percentage ||
+    Number(((correctResponses / questionsAttempted) * 100).toFixed(0));
   const isPassed = percentage > 65;
   const statusMessage = isPassed
-    ? t('youPassed')
-    : t('youFailed1').replace('{passing}', `${valuesObj.generalConfig.passingCriteria}`);
-  const statusColor = isPassed ? '#4ade80' : '#f97316';
+    ? t("youPassed")
+    : t("youFailed1").replace(
+        "{passing}",
+        `${valuesObj.generalConfig.passingCriteria}`
+      );
+  const statusColor = isPassed ? "#4ade80" : "#f97316";
 
   useEffect(() => {
     let animationFrameId: number;
@@ -57,39 +68,45 @@ const ResultsCard = (props: ResultsCardProps) => {
       ${statusColor} ${animatedPercentage * 3.6}deg, 
       #000 ${animatedPercentage * 3.6}deg
     )`,
-    boxShadow: '0 0 10px rgba(0,0,0,0.2)',
+    boxShadow: "0 0 10px rgba(0,0,0,0.2)",
   };
 
   return (
     <div className={styles.contentArea}>
       <div className={styles.contentContainer}>
-        <h1 className={`${styles.title}`}>{t(title)}: Section Summary</h1>
+        <h1 className={`${styles.title}`}>
+          {t(title)}: {t("sectionSummary")}
+        </h1>
 
         <div className={styles.card}>
           {/* Left Section - Statistics */}
           <div className={styles.statsSection}>
             <div className={styles.statRow}>
-              <h2 className={styles.statLabel}>{t('questionsAttempted')}</h2>
+              <h2 className={styles.statLabel}>{t("questionsAttempted")}</h2>
               <span className={styles.statValue}>{questionsAttempted}</span>
             </div>
 
             <div className={styles.divider}></div>
 
             <div className={styles.statRow}>
-              <h2 className={styles.statLabel}>{weightagePresent ? t('pointsValue') : t('correctResponses')}</h2>
+              <h2 className={styles.statLabel}>
+                {weightagePresent ? t("pointsValue") : t("correctResponses")}
+              </h2>
               <span className={styles.statValue}>{correctResponses}</span>
             </div>
             <div className={styles.divider}></div>
             {weightagePresent && (
               <div className={styles.noteRow}>
-                <span className={styles.noteValue}>{t('pointsNote')}</span>
+                <span className={styles.noteValue}>{t("pointsNote")}</span>
               </div>
             )}
           </div>
 
           {/* Right Section - Progress Circle */}
           <div className={styles.progressSection}>
-            <h3 style={{ marginTop: '0', marginBottom: '13px' }}>Your score</h3>
+            <h3 style={{ marginTop: "0", marginBottom: "13px" }}>
+              {t("yourScore")}
+            </h3>
 
             {/* <div className={styles.progressContainer}>
               <div className={styles.backgroundCircle}></div>
@@ -106,15 +123,17 @@ const ResultsCard = (props: ResultsCardProps) => {
             <CircularProgressBar value={percentage} />
             {/* <Cir></Cir> */}
 
-            <p className={styles.statusText} style={{ color: '#fff' }}>
+            <p className={styles.statusText} style={{ color: "#fff" }}>
               {statusMessage}
             </p>
           </div>
         </div>
 
         {/* Button Component */}
-        <div className={`${styles.fullWidth} ${styles.displayCenter} ${styles.buttonContainer}`}>
-          <ButtonComponent text={t('continue')} clickHandler={clickHandler} />
+        <div
+          className={`${styles.fullWidth} ${styles.displayCenter} ${styles.buttonContainer}`}
+        >
+          <ButtonComponent text={t("continue")} clickHandler={clickHandler} />
         </div>
       </div>
     </div>
@@ -122,4 +141,3 @@ const ResultsCard = (props: ResultsCardProps) => {
 };
 
 export default ResultsCard;
-

@@ -1,13 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import Header from './Header';
-import CircleProgressBar from './CircleProgressBar';
-import SectionScores from './SectionScores';
-import AssessmentFooter from './AssessmentFooter';
-import styles from '../../styles/AssessmentReport.scss';
-import { Image, Text, View, Page, Document, StyleSheet } from '@react-pdf/renderer';
-import globalStore from '../../thunk';
-import '../../../../public/common/assets/fonts/fonts.css';
-import { ActivityDataStoreModel, PlayerStoreModel } from '../../interface/storeInterface';
+import React, { useEffect, useState } from "react";
+import Header from "./Header";
+import CircleProgressBar from "./CircleProgressBar";
+import SectionScores from "./SectionScores";
+import AssessmentFooter from "./AssessmentFooter";
+import styles from "../../styles/AssessmentReport.scss";
+import {
+  Image,
+  Text,
+  View,
+  Page,
+  Document,
+  StyleSheet,
+} from "@react-pdf/renderer";
+import globalStore from "../../thunk";
+import "../../../../public/common/assets/fonts/fonts.css";
+import {
+  ActivityDataStoreModel,
+  PlayerStoreModel,
+} from "../../interface/storeInterface";
+import { t } from "../../helpers/LanguageTranslator";
 
 interface AssessmentData {
   overallScore: number;
@@ -22,7 +33,7 @@ interface AssessmentData {
 
 interface assessmentDataProps {
   data?: AssessmentData;
-  images?: PlayerStoreModel['images'];
+  images?: PlayerStoreModel["images"];
   isPassed?: boolean;
 }
 
@@ -33,65 +44,57 @@ const AssessmentReport = (props: assessmentDataProps) => {
 
   useEffect(() => {
     setTimeout(() => {
-      const _h = document.getElementsByClassName(styles.innerCont)[0]?.clientHeight;
+      const _h = document.getElementsByClassName(styles.innerCont)[0]
+        ?.clientHeight;
       setHeight(_h + 10);
     }, 200);
   }, []);
 
-  // return (
-  //   <Document>
-  //     <Page size="A4" style={styles.page}>
-  //       <View style={styles.section}>
-  //         <Text>Section #1</Text>
-  //       </View>
-  //       <View style={styles.section}>
-  //         <Text>Section #2</Text>
-  //       </View>
-  //     </Page>
-  //   </Document>
-  // );
-
   return (
-    <div style={{ width: '100%', height: '100%' }}>
+    <div style={{ width: "100%", height: "100%" }}>
       <div className={styles.reportContainer}>
         <div
           className={styles.reportCard}
           style={{
-            width: '764px',
-            height: '980px',
-            padding: '0 40px',
-            backgroundImage: images.certificateBG?.url ? `url(${images.certificateBG.url})` : 'none',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            position: 'relative',
+            width: "764px",
+            height: "980px",
+            padding: "0 40px",
+            backgroundImage: images.certificateBG?.url
+              ? `url(${images.certificateBG.url})`
+              : "none",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            position: "relative",
           }}
         >
           <div className={styles.pdflogo}>
-            <img src={images.pdflogo?.url} alt={''} />
+            <img src={images.pdflogo?.url} alt={""} />
           </div>
 
-          {/* <h3  className={styles.headingtop}>End User Sellers: Building (Retail)</h3> */}
-
-          <h3 className={styles.headingtop}>
-            {/* {assessmentData.overallScore > assessmentData.passingScore.overall
-              ? 'End User Sellers: Building (Retail)'
-              : 'End User Sellers: Cloud & Service Providers(Colocation)'} */}
-            End User Sellers: Cloud & Service Providers(Colocation)
-          </h3>
+          <h3 className={styles.headingtop}>{t("pdfHeaderText")}</h3>
           <div className={styles.backDiv} style={{ height: height }}></div>
           <div className={styles.innerCont}>
-            <Header title=" Baseline Assessment" />
+            <Header title={t("headerTitle")} />
 
             <div className="d-flex justify-content-center mt-4 mb-4">
-              <CircleProgressBar isPassed={isPassed} value={assessmentData.overallScore} enableAnimate={false} />
+              <CircleProgressBar
+                isPassed={isPassed}
+                value={assessmentData.overallScore}
+                enableAnimate={false}
+              />
             </div>
 
-            <SectionScores sectionScores={assessmentData.sectionScores} passingScore={assessmentData.passingScore} />
+            <SectionScores
+              sectionScores={assessmentData.sectionScores}
+              passingScore={assessmentData.passingScore}
+            />
 
             <AssessmentFooter overallScore={assessmentData.overallScore} />
           </div>
           <div className={styles.timerContainer}>
-            <p>Generated:{new Date().toLocaleString()}</p>
+            <p>
+              {t("generated")}: {new Date().toLocaleString()}
+            </p>
           </div>
         </div>
       </div>
@@ -100,4 +103,3 @@ const AssessmentReport = (props: assessmentDataProps) => {
 };
 
 export default AssessmentReport;
-

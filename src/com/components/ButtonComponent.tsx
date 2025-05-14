@@ -33,12 +33,15 @@ interface ButtonComponentPropsInterface {
 
 const ButtonComponent = (props: ButtonComponentPropsInterface) => {
   let {
+    imgSrc = '',
+    imgWidth = '80%',
+    imgHeight = '80%',
     text = '',
     defaultCSS = '',
     normalCSS = '',
     hoverCSS = '',
     disabledCSS = '',
-    clickHandler = () => {},
+    clickHandler = () => { },
     disabled = false,
     avoidDefaultStyle = false,
     avoidDisableClass = false,
@@ -74,18 +77,16 @@ const ButtonComponent = (props: ButtonComponentPropsInterface) => {
       title={props.title ? props.title : null}
       aria-label={props.ariaLabel ? props.ariaLabel : text}
       data-id={props.dataId ? props.dataId : null}
-      className={`${defaultCSS} ${normalCSS} ${buttonHovered && !props.rollOverDisabled && `${hoverCSS} `}  ${
-        disabled && `${disabledCSS}`
-      }  ${!avoidDefaultStyle && (buttonHovered ? styles.defaultBtnHover : styles.defaultBtn)}`}
-      aria-hidden={`${
-        props.ariaHidden
-          ? props.ariaHidden
-          : defaultCSS.indexOf('disableButton') !== -1
+      className={`${defaultCSS} ${normalCSS} ${buttonHovered && !props.rollOverDisabled && `${hoverCSS} `}  ${disabled && `${disabledCSS}`
+        }  ${!avoidDefaultStyle && (buttonHovered ? styles.defaultBtnHover : styles.defaultBtn)}`}
+      aria-hidden={`${props.ariaHidden
+        ? props.ariaHidden
+        : defaultCSS.indexOf('disableButton') !== -1
           ? avoidDisableClass
             ? false
             : true
           : false
-      }`}
+        }`}
       tabIndex={props.ariaHidden ? -1 : defaultCSS.indexOf('disableButton') !== -1 ? (avoidDisableClass ? 0 : -1) : 0}
       aria-disabled={defaultCSS.indexOf('disableButton') !== -1 ? true : false}
       disabled={disabled}
@@ -106,9 +107,14 @@ const ButtonComponent = (props: ButtonComponentPropsInterface) => {
       onKeyDown={props.onKeyDown}
     >
       {props.buttonInnerElements && props.buttonInnerElements}
-      <span style={{ pointerEvents: 'none' }} aria-hidden={true}>
-        {text}
-      </span>
+      {
+        text !== '' ? <span style={{ pointerEvents: 'none' }} aria-hidden={true}>
+          {text}
+        </span>
+          :
+          <img src={imgSrc} width={imgWidth} height={imgHeight} />
+      }
+
     </button>
   );
 };

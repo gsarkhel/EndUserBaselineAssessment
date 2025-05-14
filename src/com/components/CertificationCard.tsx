@@ -43,7 +43,7 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
 
   const _general = valuesObj.generalConfig;
   const isPassed =
-    _general.passingCriteria < average && Object.keys(scores).every((_i) => scores[_i] > _general.passingCriteria);
+  average >= _general.passingCriteria && Object.keys(scores).every((_i) => scores[_i] >= _general.passingCriteria);
 
   const lastAttemptDate = new Date(scormData.lastAttempt || new Date().toISOString());
   const timeIntervalInMs = _general.timeForNext * 60 * 1000; // Convert minutes to milliseconds

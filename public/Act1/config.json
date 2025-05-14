@@ -22,12 +22,13 @@
     "correct": "./assets/images/correct.png",
     "incorrect": "./assets/images/incorrect.png",
     "cb": "./assets/images/cb.png",
-    "cbUnchecked": "./assets/images/cbUnchecked.png"
+    "cbUnchecked": "./assets/images/cbUnchecked.png",
+    "thumbVideo": "../assets/images/thumbVideo.png",
+    "mcPlay": "../assets/images/play.png"
   },
   "videos": {
     "assessment": "./assets/images/SampleVideo.mp4"
   },
-
   "audios": [],
   "gameConfig": {
     "tabs": {
@@ -41,176 +42,359 @@
             "q": "s1q1",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s1q1option1", "s1q1option2", "s1q1option3"],
+            "opt": [
+              "s1q1option1",
+              "s1q1option2",
+              "s1q1option3"
+            ],
             "ans": 0
           },
           {
             "q": "s1q2",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s1q2option1", "s1q2option2", "s1q2option3", "s1q2option4"],
+            "opt": [
+              "s1q2option1",
+              "s1q2option2",
+              "s1q2option3",
+              "s1q2option4"
+            ],
             "ans": 3
           },
           {
             "q": "s1q3",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q3option1", "s1q3option2", "s1q3option3", "s1q3option4"],
-            "ans": [0, 2, 3]
+            "opt": [
+              "s1q3option1",
+              "s1q3option2",
+              "s1q3option3",
+              "s1q3option4"
+            ],
+            "ans": [
+              0,
+              2,
+              3
+            ]
           },
           {
             "q": "s1q4",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q4option1", "s1q4option2", "s1q4option3", "s1q4option4"],
-            "ans": [0, 1, 2, 3]
+            "opt": [
+              "s1q4option1",
+              "s1q4option2",
+              "s1q4option3",
+              "s1q4option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2,
+              3
+            ]
           },
           {
             "q": "s1q5",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s1q5option1", "s1q5option2", "s1q5option3", "s1q5option4"],
+            "opt": [
+              "s1q5option1",
+              "s1q5option2",
+              "s1q5option3",
+              "s1q5option4"
+            ],
             "ans": 2
           },
           {
             "q": "s1q6",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q6option1", "s1q6option2", "s1q6option3", "s1q6option4"],
-            "ans": [0, 1, 2]
+            "opt": [
+              "s1q6option1",
+              "s1q6option2",
+              "s1q6option3",
+              "s1q6option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2
+            ]
           },
           {
             "q": "s1q7",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q7option1", "s1q7option2", "s1q7option3", "s1q7option4"],
-            "ans": [0, 2, 3]
+            "opt": [
+              "s1q7option1",
+              "s1q7option2",
+              "s1q7option3",
+              "s1q7option4"
+            ],
+            "ans": [
+              0,
+              2,
+              3
+            ]
           },
           {
             "q": "s1q8",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q8option1", "s1q8option2", "s1q8option3", "s1q8option4"],
-            "ans": [0, 1, 2]
+            "opt": [
+              "s1q8option1",
+              "s1q8option2",
+              "s1q8option3",
+              "s1q8option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2
+            ]
           },
           {
             "q": "s1q9",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s1q9option1", "s1q9option2", "s1q9option3", "s1q9option4"],
+            "opt": [
+              "s1q9option1",
+              "s1q9option2",
+              "s1q9option3",
+              "s1q9option4"
+            ],
             "ans": 0
           },
           {
             "q": "s1q10",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q10option1", "s1q10option2", "s1q10option3", "s1q10option4"],
-            "ans": [0, 1, 2, 3]
+            "opt": [
+              "s1q10option1",
+              "s1q10option2",
+              "s1q10option3",
+              "s1q10option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2,
+              3
+            ]
           },
           {
             "q": "s1q11",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q11option1", "s1q11option2", "s1q11option3", "s1q11option4"],
-            "ans": [0, 1, 2, 3]
+            "opt": [
+              "s1q11option1",
+              "s1q11option2",
+              "s1q11option3",
+              "s1q11option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2,
+              3
+            ]
           },
           {
             "q": "s1q12",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s1q12option1", "s1q12option2", "s1q12option3", "s1q12option4"],
+            "opt": [
+              "s1q12option1",
+              "s1q12option2",
+              "s1q12option3",
+              "s1q12option4"
+            ],
             "ans": 1
           },
           {
             "q": "s1q13",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s1q13option1", "s1q13option2", "s1q13option3", "s1q13option4"],
+            "opt": [
+              "s1q13option1",
+              "s1q13option2",
+              "s1q13option3",
+              "s1q13option4"
+            ],
             "ans": 1
           },
           {
             "q": "s1q14",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s1q14option1", "s1q14option2", "s1q14option3"],
+            "opt": [
+              "s1q14option1",
+              "s1q14option2",
+              "s1q14option3"
+            ],
             "ans": 1
           },
           {
             "q": "s1q15",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s1q15option1", "s1q15option2", "s1q15option3", "s1q15option4"],
+            "opt": [
+              "s1q15option1",
+              "s1q15option2",
+              "s1q15option3",
+              "s1q15option4"
+            ],
             "ans": 3
           },
           {
             "q": "s1q16",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q16option1", "s1q16option2", "s1q16option3", "s1q16option4"],
-            "ans": [0, 2, 3]
+            "opt": [
+              "s1q16option1",
+              "s1q16option2",
+              "s1q16option3",
+              "s1q16option4"
+            ],
+            "ans": [
+              0,
+              2,
+              3
+            ]
           },
           {
             "q": "s1q17",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q17option1", "s1q17option2", "s1q17option3", "s1q17option4"],
-            "ans": [0, 1, 2]
+            "opt": [
+              "s1q17option1",
+              "s1q17option2",
+              "s1q17option3",
+              "s1q17option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2
+            ]
           },
           {
             "q": "s1q18",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q18option1", "s1q18option2", "s1q18option3", "s1q18option4"],
-            "ans": [0, 1, 2, 3]
+            "opt": [
+              "s1q18option1",
+              "s1q18option2",
+              "s1q18option3",
+              "s1q18option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2,
+              3
+            ]
           },
           {
             "q": "s1q19",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s1q19option1", "s1q19option2"],
+            "opt": [
+              "s1q19option1",
+              "s1q19option2"
+            ],
             "ans": 0
           },
           {
             "q": "s1q20",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q20option1", "s1q20option2", "s1q20option3", "s1q20option4"],
-            "ans": [0, 1, 2]
+            "opt": [
+              "s1q20option1",
+              "s1q20option2",
+              "s1q20option3",
+              "s1q20option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2
+            ]
           },
           {
             "q": "s1q21",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s1q21option1", "s1q21option2", "s1q21option3", "s1q21option4"],
+            "opt": [
+              "s1q21option1",
+              "s1q21option2",
+              "s1q21option3",
+              "s1q21option4"
+            ],
             "ans": 3
           },
           {
             "q": "s1q22",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q22option1", "s1q22option2", "s1q22option3"],
-            "ans": [0, 1]
+            "opt": [
+              "s1q22option1",
+              "s1q22option2",
+              "s1q22option3"
+            ],
+            "ans": [
+              0,
+              1
+            ]
           },
           {
             "q": "s1q23",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q23option1", "s1q23option2", "s1q23option3", "s1q23option4"],
-            "ans": [0, 1, 3]
+            "opt": [
+              "s1q23option1",
+              "s1q23option2",
+              "s1q23option3",
+              "s1q23option4"
+            ],
+            "ans": [
+              0,
+              1,
+              3
+            ]
           },
           {
             "q": "s1q24",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q24option1", "s1q24option2", "s1q24option3", "s1q24option4"],
-            "ans": [0, 2, 3]
+            "opt": [
+              "s1q24option1",
+              "s1q24option2",
+              "s1q24option3",
+              "s1q24option4"
+            ],
+            "ans": [
+              0,
+              2,
+              3
+            ]
           },
           {
             "q": "s1q25",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s1q25option1", "s1q25option2", "s1q25option3", "s1q25option4"],
-            "ans": [0, 2, 3]
+            "opt": [
+              "s1q25option1",
+              "s1q25option2",
+              "s1q25option3",
+              "s1q25option4"
+            ],
+            "ans": [
+              0,
+              2,
+              3
+            ]
           }
         ]
       },
@@ -228,7 +412,12 @@
             "q": "s2q1",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s2q1option1", "s2q1option2", "s2q1option3", "s2q1option4"],
+            "opt": [
+              "s2q1option1",
+              "s2q1option2",
+              "s2q1option3",
+              "s2q1option4"
+            ],
             "ans": 0,
             "pool": "esxpower"
           },
@@ -236,63 +425,132 @@
             "q": "s2q2",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q2option1", "s2q2option2", "s2q2option3", "s2q2option4"],
-            "ans": [0, 1, 2, 3],
+            "opt": [
+              "s2q2option1",
+              "s2q2option2",
+              "s2q2option3",
+              "s2q2option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2,
+              3
+            ],
             "pool": "esxpower"
           },
           {
             "q": "s2q3",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q3option1", "s2q3option2", "s2q3option3", "s2q3option4"],
-            "ans": [0, 1, 2],
+            "opt": [
+              "s2q3option1",
+              "s2q3option2",
+              "s2q3option3",
+              "s2q3option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2
+            ],
             "pool": "esxpower"
           },
           {
             "q": "s2q4",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q4option1", "s2q4option2", "s2q4option3", "s2q4option4"],
-            "ans": [1, 2, 3],
+            "opt": [
+              "s2q4option1",
+              "s2q4option2",
+              "s2q4option3",
+              "s2q4option4"
+            ],
+            "ans": [
+              1,
+              2,
+              3
+            ],
             "pool": "esxpower"
           },
           {
             "q": "s2q5",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q5option1", "s2q5option2", "s2q5option3", "s2q5option4"],
-            "ans": [0, 1, 2, 3],
+            "opt": [
+              "s2q5option1",
+              "s2q5option2",
+              "s2q5option3",
+              "s2q5option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2,
+              3
+            ],
             "pool": "esxpower"
           },
           {
             "q": "s2q6",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q6option1", "s2q6option2", "s2q6option3", "s2q6option4"],
-            "ans": [0, 1, 2, 3],
+            "opt": [
+              "s2q6option1",
+              "s2q6option2",
+              "s2q6option3",
+              "s2q6option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2,
+              3
+            ],
             "pool": "esxpower"
           },
           {
             "q": "s2q7",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q7option1", "s2q7option2", "s2q7option3", "s2q7option4"],
-            "ans": [1, 2, 3],
+            "opt": [
+              "s2q7option1",
+              "s2q7option2",
+              "s2q7option3",
+              "s2q7option4"
+            ],
+            "ans": [
+              1,
+              2,
+              3
+            ],
             "pool": "esxpower"
           },
           {
             "q": "s2q8",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q8option1", "s2q8option2", "s2q8option3", "s2q8option4"],
-            "ans": [0, 2, 3],
+            "opt": [
+              "s2q8option1",
+              "s2q8option2",
+              "s2q8option3",
+              "s2q8option4"
+            ],
+            "ans": [
+              0,
+              2,
+              3
+            ],
             "pool": "esxpower"
           },
           {
             "q": "s2q9",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s2q9option1", "s2q9option2"],
+            "opt": [
+              "s2q9option1",
+              "s2q9option2"
+            ],
             "ans": 0,
             "pool": "esxpower"
           },
@@ -300,15 +558,30 @@
             "q": "s2q10",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q10option1", "s2q10option2", "s2q10option3", "s2q10option4"],
-            "ans": [0, 1, 2, 3],
+            "opt": [
+              "s2q10option1",
+              "s2q10option2",
+              "s2q10option3",
+              "s2q10option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2,
+              3
+            ],
             "pool": "esxpower"
           },
           {
             "q": "s2q11",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s2q11option1", "s2q11option2", "s2q11option3", "s2q11option4"],
+            "opt": [
+              "s2q11option1",
+              "s2q11option2",
+              "s2q11option3",
+              "s2q11option4"
+            ],
             "ans": 1,
             "pool": "esxit"
           },
@@ -316,55 +589,109 @@
             "q": "s2q12",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q12option1", "s2q12option2", "s2q12option3", "s2q12option4"],
-            "ans": [1, 3],
+            "opt": [
+              "s2q12option1",
+              "s2q12option2",
+              "s2q12option3",
+              "s2q12option4"
+            ],
+            "ans": [
+              1,
+              3
+            ],
             "pool": "esxit"
           },
           {
             "q": "s2q13",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q13option1", "s2q13option2", "s2q13option3", "s2q13option4"],
-            "ans": [0, 2, 3],
+            "opt": [
+              "s2q13option1",
+              "s2q13option2",
+              "s2q13option3",
+              "s2q13option4"
+            ],
+            "ans": [
+              0,
+              2,
+              3
+            ],
             "pool": "esxit"
           },
           {
             "q": "s2q14",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q14option1", "s2q14option2", "s2q14option3", "s2q14option4"],
-            "ans": [1, 2, 3],
+            "opt": [
+              "s2q14option1",
+              "s2q14option2",
+              "s2q14option3",
+              "s2q14option4"
+            ],
+            "ans": [
+              1,
+              2,
+              3
+            ],
             "pool": "esxit"
           },
           {
             "q": "s2q15",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q15option1", "s2q15option2", "s2q15option3", "s2q15option4"],
-            "ans": [0, 1],
+            "opt": [
+              "s2q15option1",
+              "s2q15option2",
+              "s2q15option3",
+              "s2q15option4"
+            ],
+            "ans": [
+              0,
+              1
+            ],
             "pool": "esxit"
           },
           {
             "q": "s2q16",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q16option1", "s2q16option2", "s2q16option3", "s2q16option4"],
-            "ans": [0, 2, 3],
+            "opt": [
+              "s2q16option1",
+              "s2q16option2",
+              "s2q16option3",
+              "s2q16option4"
+            ],
+            "ans": [
+              0,
+              2,
+              3
+            ],
             "pool": "esxit"
           },
           {
             "q": "s2q17",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q17option1", "s2q17option2", "s2q17option3", "s2q17option4"],
-            "ans": [1, 3],
+            "opt": [
+              "s2q17option1",
+              "s2q17option2",
+              "s2q17option3",
+              "s2q17option4"
+            ],
+            "ans": [
+              1,
+              3
+            ],
             "pool": "esxit"
           },
           {
             "q": "s2q18",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s2q18option1", "s2q18option2"],
+            "opt": [
+              "s2q18option1",
+              "s2q18option2"
+            ],
             "ans": 0,
             "pool": "esxit"
           },
@@ -372,7 +699,11 @@
             "q": "s2q19",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s2q19option1", "s2q19option2", "s2q19option3"],
+            "opt": [
+              "s2q19option1",
+              "s2q19option2",
+              "s2q19option3"
+            ],
             "ans": 2,
             "pool": "esxit"
           },
@@ -380,15 +711,30 @@
             "q": "s2q20",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q20option1", "s2q20option2", "s2q20option3", "s2q20option4"],
-            "ans": [0, 1, 2, 3],
+            "opt": [
+              "s2q20option1",
+              "s2q20option2",
+              "s2q20option3",
+              "s2q20option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2,
+              3
+            ],
             "pool": "esxit"
           },
           {
             "q": "s2q21",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s2q21option1", "s2q21option2", "s2q21option3", "s2q21option4"],
+            "opt": [
+              "s2q21option1",
+              "s2q21option2",
+              "s2q21option3",
+              "s2q21option4"
+            ],
             "ans": 0,
             "pool": "esxbuilding"
           },
@@ -396,15 +742,29 @@
             "q": "s2q22",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s2q22option1", "s2q22option2", "s2q22option3", "s2q22option4"],
-            "ans": [0, 1, 2],
+            "opt": [
+              "s2q22option1",
+              "s2q22option2",
+              "s2q22option3",
+              "s2q22option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2
+            ],
             "pool": "esxbuilding"
           },
           {
             "q": "s2q23",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s2q23option1", "s2q23option2", "s2q23option3", "s2q23option4"],
+            "opt": [
+              "s2q23option1",
+              "s2q23option2",
+              "s2q23option3",
+              "s2q23option4"
+            ],
             "ans": 0,
             "pool": "esxbuilding"
           },
@@ -412,7 +772,10 @@
             "q": "s2q24",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s2q24option1", "s2q24option2"],
+            "opt": [
+              "s2q24option1",
+              "s2q24option2"
+            ],
             "ans": 0,
             "pool": "esxbuilding"
           },
@@ -420,7 +783,13 @@
             "q": "s2q25",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s2q25option1", "s2q25option2", "s2q25option3", "s2q25option4", "s2q25option5"],
+            "opt": [
+              "s2q25option1",
+              "s2q25option2",
+              "s2q25option3",
+              "s2q25option4",
+              "s2q25option5"
+            ],
             "ans": 4,
             "pool": "esxbuilding"
           }
@@ -440,7 +809,12 @@
             "q": "s4q1",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q1option1", "s4q1option2", "s4q1option3", "s4q1option4"],
+            "opt": [
+              "s4q1option1",
+              "s4q1option2",
+              "s4q1option3",
+              "s4q1option4"
+            ],
             "ans": 1,
             "pool": "software"
           },
@@ -448,7 +822,12 @@
             "q": "s4q2",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q2option1", "s4q2option2", "s4q2option3", "s4q2option4"],
+            "opt": [
+              "s4q2option1",
+              "s4q2option2",
+              "s4q2option3",
+              "s4q2option4"
+            ],
             "ans": 1,
             "pool": "software"
           },
@@ -456,7 +835,12 @@
             "q": "s4q3",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q3option1", "s4q3option2", "s4q3option3", "s4q3option4"],
+            "opt": [
+              "s4q3option1",
+              "s4q3option2",
+              "s4q3option3",
+              "s4q3option4"
+            ],
             "ans": 3,
             "pool": "software"
           },
@@ -464,7 +848,12 @@
             "q": "s4q4",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q4option1", "s4q4option2", "s4q4option3", "s4q4option4"],
+            "opt": [
+              "s4q4option1",
+              "s4q4option2",
+              "s4q4option3",
+              "s4q4option4"
+            ],
             "ans": 1,
             "pool": "software"
           },
@@ -472,7 +861,12 @@
             "q": "s4q5",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q5option1", "s4q5option2", "s4q5option3", "s4q5option4"],
+            "opt": [
+              "s4q5option1",
+              "s4q5option2",
+              "s4q5option3",
+              "s4q5option4"
+            ],
             "ans": 2,
             "pool": "software"
           },
@@ -480,7 +874,12 @@
             "q": "s4q6",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q6option1", "s4q6option2", "s4q6option3", "s4q6option4"],
+            "opt": [
+              "s4q6option1",
+              "s4q6option2",
+              "s4q6option3",
+              "s4q6option4"
+            ],
             "ans": 0,
             "pool": "software"
           },
@@ -488,7 +887,12 @@
             "q": "s4q7",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q7option1", "s4q7option2", "s4q7option3", "s4q7option4"],
+            "opt": [
+              "s4q7option1",
+              "s4q7option2",
+              "s4q7option3",
+              "s4q7option4"
+            ],
             "ans": 2,
             "pool": "software"
           },
@@ -496,7 +900,12 @@
             "q": "s4q8",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q8option1", "s4q8option2", "s4q8option3", "s4q8option4"],
+            "opt": [
+              "s4q8option1",
+              "s4q8option2",
+              "s4q8option3",
+              "s4q8option4"
+            ],
             "ans": 3,
             "pool": "software"
           },
@@ -504,7 +913,12 @@
             "q": "s4q9",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q9option1", "s4q9option2", "s4q9option3", "s4q9option4"],
+            "opt": [
+              "s4q9option1",
+              "s4q9option2",
+              "s4q9option3",
+              "s4q9option4"
+            ],
             "ans": 1,
             "pool": "software"
           },
@@ -512,7 +926,12 @@
             "q": "s4q10",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q10option1", "s4q10option2", "s4q10option3", "s4q10option4"],
+            "opt": [
+              "s4q10option1",
+              "s4q10option2",
+              "s4q10option3",
+              "s4q10option4"
+            ],
             "ans": 3,
             "pool": "software"
           },
@@ -520,7 +939,12 @@
             "q": "s4q11",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q11option1", "s4q11option2", "s4q11option3", "s4q11option4"],
+            "opt": [
+              "s4q11option1",
+              "s4q11option2",
+              "s4q11option3",
+              "s4q11option4"
+            ],
             "ans": 0,
             "pool": "software"
           },
@@ -528,7 +952,12 @@
             "q": "s4q12",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q12option1", "s4q12option2", "s4q12option3", "s4q12option4"],
+            "opt": [
+              "s4q12option1",
+              "s4q12option2",
+              "s4q12option3",
+              "s4q12option4"
+            ],
             "ans": 1,
             "pool": "software"
           },
@@ -536,7 +965,12 @@
             "q": "s4q13",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q13option1", "s4q13option2", "s4q13option3", "s4q13option4"],
+            "opt": [
+              "s4q13option1",
+              "s4q13option2",
+              "s4q13option3",
+              "s4q13option4"
+            ],
             "ans": 3,
             "pool": "software"
           },
@@ -544,7 +978,12 @@
             "q": "s4q14",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q14option1", "s4q14option2", "s4q14option3", "s4q14option4"],
+            "opt": [
+              "s4q14option1",
+              "s4q14option2",
+              "s4q14option3",
+              "s4q14option4"
+            ],
             "ans": 1,
             "pool": "software"
           },
@@ -552,7 +991,12 @@
             "q": "s4q15",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q15option1", "s4q15option2", "s4q15option3", "s4q15option4"],
+            "opt": [
+              "s4q15option1",
+              "s4q15option2",
+              "s4q15option3",
+              "s4q15option4"
+            ],
             "ans": 2,
             "pool": "software"
           },
@@ -560,7 +1004,12 @@
             "q": "s4q16",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q16option1", "s4q16option2", "s4q16option3", "s4q16option4"],
+            "opt": [
+              "s4q16option1",
+              "s4q16option2",
+              "s4q16option3",
+              "s4q16option4"
+            ],
             "ans": 0,
             "pool": "software"
           },
@@ -568,7 +1017,12 @@
             "q": "s4q17",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q17option1", "s4q17option2", "s4q17option3", "s4q17option4"],
+            "opt": [
+              "s4q17option1",
+              "s4q17option2",
+              "s4q17option3",
+              "s4q17option4"
+            ],
             "ans": 3,
             "pool": "software"
           },
@@ -576,7 +1030,12 @@
             "q": "s4q18",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q18option1", "s4q18option2", "s4q18option3", "s4q18option4"],
+            "opt": [
+              "s4q18option1",
+              "s4q18option2",
+              "s4q18option3",
+              "s4q18option4"
+            ],
             "ans": 0,
             "pool": "software"
           },
@@ -584,7 +1043,12 @@
             "q": "s4q19",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q19option1", "s4q19option2", "s4q19option3", "s4q19option4"],
+            "opt": [
+              "s4q19option1",
+              "s4q19option2",
+              "s4q19option3",
+              "s4q19option4"
+            ],
             "ans": 2,
             "pool": "software"
           },
@@ -592,7 +1056,12 @@
             "q": "s4q20",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q20option1", "s4q20option2", "s4q20option3", "s4q20option4"],
+            "opt": [
+              "s4q20option1",
+              "s4q20option2",
+              "s4q20option3",
+              "s4q20option4"
+            ],
             "ans": 1,
             "pool": "software"
           },
@@ -600,7 +1069,12 @@
             "q": "s4q21",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q21option1", "s4q21option2", "s4q21option3", "s4q21option4"],
+            "opt": [
+              "s4q21option1",
+              "s4q21option2",
+              "s4q21option3",
+              "s4q21option4"
+            ],
             "ans": 3,
             "pool": "software"
           },
@@ -608,7 +1082,10 @@
             "q": "s4q22",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q22option1", "s4q22option2"],
+            "opt": [
+              "s4q22option1",
+              "s4q22option2"
+            ],
             "ans": 1,
             "pool": "sustainability"
           },
@@ -616,23 +1093,46 @@
             "q": "s4q23",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s4q23option1", "s4q23option2", "s4q23option3"],
-            "ans": [0, 1, 2],
+            "opt": [
+              "s4q23option1",
+              "s4q23option2",
+              "s4q23option3"
+            ],
+            "ans": [
+              0,
+              1,
+              2
+            ],
             "pool": "sustainability"
           },
           {
             "q": "s4q24",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s4q24option1", "s4q24option2", "s4q24option3", "s4q24option4", "s4q24option5"],
-            "ans": [0, 1, 2, 4],
+            "opt": [
+              "s4q24option1",
+              "s4q24option2",
+              "s4q24option3",
+              "s4q24option4",
+              "s4q24option5"
+            ],
+            "ans": [
+              0,
+              1,
+              2,
+              4
+            ],
             "pool": "sustainability"
           },
           {
             "q": "s4q25",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q25option1", "s4q25option2", "s4q25option3"],
+            "opt": [
+              "s4q25option1",
+              "s4q25option2",
+              "s4q25option3"
+            ],
             "ans": 2,
             "pool": "sustainability"
           },
@@ -640,39 +1140,77 @@
             "q": "s4q26",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s4q26option1", "s4q26option2", "s4q26option3"],
-            "ans": [0, 1],
+            "opt": [
+              "s4q26option1",
+              "s4q26option2",
+              "s4q26option3"
+            ],
+            "ans": [
+              0,
+              1
+            ],
             "pool": "sustainability"
           },
           {
             "q": "s4q27",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s4q27option1", "s4q27option2", "s4q27option3", "s4q27option4"],
-            "ans": [0, 3],
+            "opt": [
+              "s4q27option1",
+              "s4q27option2",
+              "s4q27option3",
+              "s4q27option4"
+            ],
+            "ans": [
+              0,
+              3
+            ],
             "pool": "sustainability"
           },
           {
             "q": "s4q28",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s4q28option1", "s4q28option2", "s4q28option3", "s4q28option4"],
-            "ans": [0, 1, 3],
+            "opt": [
+              "s4q28option1",
+              "s4q28option2",
+              "s4q28option3",
+              "s4q28option4"
+            ],
+            "ans": [
+              0,
+              1,
+              3
+            ],
             "pool": "sustainability"
           },
           {
             "q": "s4q29",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s4q29option1", "s4q29option2", "s4q29option3", "s4q29option4"],
-            "ans": [0, 2],
+            "opt": [
+              "s4q29option1",
+              "s4q29option2",
+              "s4q29option3",
+              "s4q29option4"
+            ],
+            "ans": [
+              0,
+              2
+            ],
             "pool": "sustainability"
           },
           {
             "q": "s4q30",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q30option1", "s4q30option2", "s4q30option3", "s4q30option4", "s4q30option5"],
+            "opt": [
+              "s4q30option1",
+              "s4q30option2",
+              "s4q30option3",
+              "s4q30option4",
+              "s4q30option5"
+            ],
             "ans": 2,
             "pool": "sustainability"
           },
@@ -680,7 +1218,12 @@
             "q": "s4q31",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q31option1", "s4q31option2", "s4q31option3", "s4q31option4"],
+            "opt": [
+              "s4q31option1",
+              "s4q31option2",
+              "s4q31option3",
+              "s4q31option4"
+            ],
             "ans": 3,
             "pool": "services"
           },
@@ -688,15 +1231,32 @@
             "q": "s4q32",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s4q32option1", "s4q32option2", "s4q32option3", "s4q32option4", "s4q32option5", "s4q32option6"],
-            "ans": [0, 1, 3, 4, 5],
+            "opt": [
+              "s4q32option1",
+              "s4q32option2",
+              "s4q32option3",
+              "s4q32option4",
+              "s4q32option5",
+              "s4q32option6"
+            ],
+            "ans": [
+              0,
+              1,
+              3,
+              4,
+              5
+            ],
             "pool": "services"
           },
           {
             "q": "s4q33",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q33option1", "s4q33option2", "s4q33option3"],
+            "opt": [
+              "s4q33option1",
+              "s4q33option2",
+              "s4q33option3"
+            ],
             "ans": 1,
             "pool": "services"
           },
@@ -704,7 +1264,11 @@
             "q": "s4q34",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q34option1", "s4q34option2", "s4q34option3"],
+            "opt": [
+              "s4q34option1",
+              "s4q34option2",
+              "s4q34option3"
+            ],
             "ans": 1,
             "pool": "services"
           },
@@ -712,7 +1276,12 @@
             "q": "s4q35",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s4q35option1", "s4q35option2", "s4q35option3", "s4q35option4"],
+            "opt": [
+              "s4q35option1",
+              "s4q35option2",
+              "s4q35option3",
+              "s4q35option4"
+            ],
             "ans": 3,
             "pool": "services"
           },
@@ -720,24 +1289,50 @@
             "q": "s4q36",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s4q36option1", "s4q36option2", "s4q36option3", "s4q36option4"],
-            "ans": [0, 1, 2],
+            "opt": [
+              "s4q36option1",
+              "s4q36option2",
+              "s4q36option3",
+              "s4q36option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2
+            ],
             "pool": "services"
           },
           {
             "q": "s4q37",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s4q37option1", "s4q37option2", "s4q37option3"],
-            "ans": [0, 1, 2],
+            "opt": [
+              "s4q37option1",
+              "s4q37option2",
+              "s4q37option3"
+            ],
+            "ans": [
+              0,
+              1,
+              2
+            ],
             "pool": "services"
           },
           {
             "q": "s4q38",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s4q38option1", "s4q38option2", "s4q38option3", "s4q38option4"],
-            "ans": [0, 1, 2],
+            "opt": [
+              "s4q38option1",
+              "s4q38option2",
+              "s4q38option3",
+              "s4q38option4"
+            ],
+            "ans": [
+              0,
+              1,
+              2
+            ],
             "pool": "services"
           }
         ]
@@ -755,7 +1350,12 @@
             "q": "s3q1",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q1option1", "s3q1option2", "s3q1option3", "s3q1option4"],
+            "opt": [
+              "s3q1option1",
+              "s3q1option2",
+              "s3q1option3",
+              "s3q1option4"
+            ],
             "ans": 3,
             "pool": "knowledge"
           },
@@ -763,7 +1363,12 @@
             "q": "s3q2",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q2option1", "s3q2option2", "s3q2option3", "s3q2option4"],
+            "opt": [
+              "s3q2option1",
+              "s3q2option2",
+              "s3q2option3",
+              "s3q2option4"
+            ],
             "ans": 1,
             "pool": "knowledge"
           },
@@ -771,7 +1376,12 @@
             "q": "s3q3",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q3option1", "s3q3option2", "s3q3option3", "s3q3option4"],
+            "opt": [
+              "s3q3option1",
+              "s3q3option2",
+              "s3q3option3",
+              "s3q3option4"
+            ],
             "ans": 2,
             "pool": "knowledge"
           },
@@ -779,7 +1389,12 @@
             "q": "s3q4",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q4option1", "s3q4option2", "s3q4option3", "s3q4option4"],
+            "opt": [
+              "s3q4option1",
+              "s3q4option2",
+              "s3q4option3",
+              "s3q4option4"
+            ],
             "ans": 1,
             "pool": "knowledge"
           },
@@ -787,7 +1402,12 @@
             "q": "s3q5",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q5option1", "s3q5option2", "s3q5option3", "s3q5option4"],
+            "opt": [
+              "s3q5option1",
+              "s3q5option2",
+              "s3q5option3",
+              "s3q5option4"
+            ],
             "ans": 2,
             "pool": "knowledge"
           },
@@ -795,7 +1415,12 @@
             "q": "s3q6",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q6option1", "s3q6option2", "s3q6option3", "s3q6option4"],
+            "opt": [
+              "s3q6option1",
+              "s3q6option2",
+              "s3q6option3",
+              "s3q6option4"
+            ],
             "ans": 1,
             "pool": "knowledge"
           },
@@ -803,7 +1428,12 @@
             "q": "s3q7",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q7option1", "s3q7option2", "s3q7option3", "s3q7option4"],
+            "opt": [
+              "s3q7option1",
+              "s3q7option2",
+              "s3q7option3",
+              "s3q7option4"
+            ],
             "ans": 1,
             "pool": "knowledge"
           },
@@ -811,7 +1441,12 @@
             "q": "s3q8",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q8option1", "s3q8option2", "s3q8option3", "s3q8option4"],
+            "opt": [
+              "s3q8option1",
+              "s3q8option2",
+              "s3q8option3",
+              "s3q8option4"
+            ],
             "ans": 0,
             "pool": "knowledge"
           },
@@ -819,7 +1454,12 @@
             "q": "s3q9",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q9option1", "s3q9option2", "s3q9option3", "s3q9option4"],
+            "opt": [
+              "s3q9option1",
+              "s3q9option2",
+              "s3q9option3",
+              "s3q9option4"
+            ],
             "ans": 1,
             "pool": "knowledge"
           },
@@ -827,7 +1467,12 @@
             "q": "s3q10",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q10option1", "s3q10option2", "s3q10option3", "s3q10option4"],
+            "opt": [
+              "s3q10option1",
+              "s3q10option2",
+              "s3q10option3",
+              "s3q10option4"
+            ],
             "ans": 1,
             "pool": "knowledge"
           },
@@ -835,7 +1480,12 @@
             "q": "s3q11",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q11option1", "s3q11option2", "s3q11option3", "s3q11option4"],
+            "opt": [
+              "s3q11option1",
+              "s3q11option2",
+              "s3q11option3",
+              "s3q11option4"
+            ],
             "ans": 1,
             "pool": "knowledge"
           },
@@ -843,7 +1493,12 @@
             "q": "s3q12",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q12option1", "s3q12option2", "s3q12option3", "s3q12option4"],
+            "opt": [
+              "s3q12option1",
+              "s3q12option2",
+              "s3q12option3",
+              "s3q12option4"
+            ],
             "ans": 0,
             "pool": "knowledge"
           },
@@ -851,7 +1506,12 @@
             "q": "s3q13",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q13option1", "s3q13option2", "s3q13option3", "s3q13option4"],
+            "opt": [
+              "s3q13option1",
+              "s3q13option2",
+              "s3q13option3",
+              "s3q13option4"
+            ],
             "ans": 2,
             "pool": "knowledge"
           },
@@ -859,7 +1519,12 @@
             "q": "s3q14",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q14option1", "s3q14option2", "s3q14option3", "s3q14option4"],
+            "opt": [
+              "s3q14option1",
+              "s3q14option2",
+              "s3q14option3",
+              "s3q14option4"
+            ],
             "ans": 0,
             "pool": "knowledge"
           },
@@ -867,7 +1532,12 @@
             "q": "s3q15",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q15option1", "s3q15option2", "s3q15option3", "s3q15option4"],
+            "opt": [
+              "s3q15option1",
+              "s3q15option2",
+              "s3q15option3",
+              "s3q15option4"
+            ],
             "ans": 3,
             "pool": "knowledge"
           },
@@ -875,7 +1545,12 @@
             "q": "s3q16",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q16option1", "s3q16option2", "s3q16option3", "s3q16option4"],
+            "opt": [
+              "s3q16option1",
+              "s3q16option2",
+              "s3q16option3",
+              "s3q16option4"
+            ],
             "ans": 0,
             "pool": "knowledge"
           },
@@ -883,7 +1558,12 @@
             "q": "s3q17",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s3q17option1", "s3q17option2", "s3q17option3", "s3q17option4"],
+            "opt": [
+              "s3q17option1",
+              "s3q17option2",
+              "s3q17option3",
+              "s3q17option4"
+            ],
             "ans": 3,
             "pool": "knowledge"
           },
@@ -891,112 +1571,252 @@
             "q": "s3q18",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q18option1", "s3q18option2", "s3q18option3", "s3q18option4"],
-            "weightage": [0.5, 0, 0.5, 1],
+            "opt": [
+              "s3q18option1",
+              "s3q18option2",
+              "s3q18option3",
+              "s3q18option4"
+            ],
+            "weightage": [
+              0.5,
+              0,
+              0.5,
+              1
+            ],
             "pool": "application"
           },
           {
             "q": "s3q19",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q19option1", "s3q19option2", "s3q19option3", "s3q19option4"],
-            "weightage": [0, 1, 0.5, 0.5],
+            "opt": [
+              "s3q19option1",
+              "s3q19option2",
+              "s3q19option3",
+              "s3q19option4"
+            ],
+            "weightage": [
+              0,
+              1,
+              0.5,
+              0.5
+            ],
             "pool": "application"
           },
           {
             "q": "s3q20",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q20option1", "s3q20option2", "s3q20option3", "s3q20option4"],
-            "weightage": [0, 1, 0.5, 0.5],
+            "opt": [
+              "s3q20option1",
+              "s3q20option2",
+              "s3q20option3",
+              "s3q20option4"
+            ],
+            "weightage": [
+              0,
+              1,
+              0.5,
+              0.5
+            ],
             "pool": "application"
           },
           {
             "q": "s3q21",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q21option1", "s3q21option2", "s3q21option3", "s3q21option4"],
-            "weightage": [0, 0.5, 0.5, 1],
+            "opt": [
+              "s3q21option1",
+              "s3q21option2",
+              "s3q21option3",
+              "s3q21option4"
+            ],
+            "weightage": [
+              0,
+              0.5,
+              0.5,
+              1
+            ],
             "pool": "application"
           },
           {
             "q": "s3q22",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q22option1", "s3q22option2", "s3q22option3", "s3q22option4"],
-            "weightage": [0, 1, 0.5, 0.5],
+            "opt": [
+              "s3q22option1",
+              "s3q22option2",
+              "s3q22option3",
+              "s3q22option4"
+            ],
+            "weightage": [
+              0,
+              1,
+              0.5,
+              0.5
+            ],
             "pool": "application"
           },
           {
             "q": "s3q23",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q23option1", "s3q23option2", "s3q23option3", "s3q23option4"],
-            "weightage": [0, 0.5, 1, 0.5],
+            "opt": [
+              "s3q23option1",
+              "s3q23option2",
+              "s3q23option3",
+              "s3q23option4"
+            ],
+            "weightage": [
+              0,
+              0.5,
+              1,
+              0.5
+            ],
             "pool": "application"
           },
           {
             "q": "s3q24",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q24option1", "s3q24option2", "s3q24option3", "s3q24option4"],
-            "weightage": [0, 1, 0.5, 0.5],
+            "opt": [
+              "s3q24option1",
+              "s3q24option2",
+              "s3q24option3",
+              "s3q24option4"
+            ],
+            "weightage": [
+              0,
+              1,
+              0.5,
+              0.5
+            ],
             "pool": "application"
           },
           {
             "q": "s3q25",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q25option1", "s3q25option2", "s3q25option3", "s3q25option4"],
-            "weightage": [0.5, 0, 1, 0.5],
+            "opt": [
+              "s3q25option1",
+              "s3q25option2",
+              "s3q25option3",
+              "s3q25option4"
+            ],
+            "weightage": [
+              0.5,
+              0,
+              1,
+              0.5
+            ],
             "pool": "application"
           },
           {
             "q": "s3q26",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q26option1", "s3q26option2", "s3q26option3", "s3q26option4"],
-            "weightage": [0.5, 0, 1, 0.5],
+            "opt": [
+              "s3q26option1",
+              "s3q26option2",
+              "s3q26option3",
+              "s3q26option4"
+            ],
+            "weightage": [
+              0.5,
+              0,
+              1,
+              0.5
+            ],
             "pool": "application"
           },
           {
             "q": "s3q27",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q27option1", "s3q27option2", "s3q27option3", "s3q27option4"],
-            "weightage": [0, 0.5, 0.5, 1],
+            "opt": [
+              "s3q27option1",
+              "s3q27option2",
+              "s3q27option3",
+              "s3q27option4"
+            ],
+            "weightage": [
+              0,
+              0.5,
+              0.5,
+              1
+            ],
             "pool": "application"
           },
           {
             "q": "s3q28",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q28option1", "s3q28option2", "s3q28option3", "s3q28option4"],
-            "weightage": [0, 0.5, 1, 0.5],
+            "opt": [
+              "s3q28option1",
+              "s3q28option2",
+              "s3q28option3",
+              "s3q28option4"
+            ],
+            "weightage": [
+              0,
+              0.5,
+              1,
+              0.5
+            ],
             "pool": "application"
           },
           {
             "q": "s3q29",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q29option1", "s3q29option2", "s3q29option3", "s3q29option4"],
-            "weightage": [0, 0.5, 0.5, 1],
+            "opt": [
+              "s3q29option1",
+              "s3q29option2",
+              "s3q29option3",
+              "s3q29option4"
+            ],
+            "weightage": [
+              0,
+              0.5,
+              0.5,
+              1
+            ],
             "pool": "application"
           },
           {
             "q": "s3q30",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q30option1", "s3q30option2", "s3q30option3", "s3q30option4"],
-            "weightage": [1, 0, 0.5, 0.5],
+            "opt": [
+              "s3q30option1",
+              "s3q30option2",
+              "s3q30option3",
+              "s3q30option4"
+            ],
+            "weightage": [
+              1,
+              0,
+              0.5,
+              0.5
+            ],
             "pool": "application"
           },
           {
             "q": "s3q31",
             "type": "WeightMCSS",
             "optType": "text",
-            "opt": ["s3q31option1", "s3q31option2", "s3q31option3", "s3q31option4"],
-            "weightage": [0.5, 0, 1, 0.5],
+            "opt": [
+              "s3q31option1",
+              "s3q31option2",
+              "s3q31option3",
+              "s3q31option4"
+            ],
+            "weightage": [
+              0.5,
+              0,
+              1,
+              0.5
+            ],
             "pool": "application"
           }
         ]
@@ -1016,7 +1836,12 @@
             "q": "s5q1",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s5q1option1", "s5q1option2", "s5q1option3", "s5q1option4"],
+            "opt": [
+              "s5q1option1",
+              "s5q1option2",
+              "s5q1option3",
+              "s5q1option4"
+            ],
             "ans": 3,
             "pool": "bfo"
           },
@@ -1024,15 +1849,25 @@
             "q": "s5q2",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s5q2option1", "s5q2option2", "s5q2option3"],
-            "ans": [1, 2],
+            "opt": [
+              "s5q2option1",
+              "s5q2option2",
+              "s5q2option3"
+            ],
+            "ans": [
+              1,
+              2
+            ],
             "pool": "bfo"
           },
           {
             "q": "s5q3",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s5q3option1", "s5q3option2"],
+            "opt": [
+              "s5q3option1",
+              "s5q3option2"
+            ],
             "ans": 1,
             "pool": "bfo"
           },
@@ -1040,31 +1875,58 @@
             "q": "s5q4",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s5q4option1", "s5q4option2", "s5q4option3"],
-            "ans": [1, 2],
+            "opt": [
+              "s5q4option1",
+              "s5q4option2",
+              "s5q4option3"
+            ],
+            "ans": [
+              1,
+              2
+            ],
             "pool": "bfo"
           },
           {
             "q": "s5q5",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s5q5option1", "s5q5option2", "s5q5option3"],
-            "ans": [0, 1],
+            "opt": [
+              "s5q5option1",
+              "s5q5option2",
+              "s5q5option3"
+            ],
+            "ans": [
+              0,
+              1
+            ],
             "pool": "bfo"
           },
           {
             "q": "s5q6",
             "type": "MCMS",
             "optType": "text",
-            "opt": ["s5q6option1", "s5q6option2", "s5q6option3", "s5q6option4"],
-            "ans": [2, 3],
+            "opt": [
+              "s5q6option1",
+              "s5q6option2",
+              "s5q6option3",
+              "s5q6option4"
+            ],
+            "ans": [
+              2,
+              3
+            ],
             "pool": "bfo"
           },
           {
             "q": "s5q7",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s5q7option1", "s5q7option2", "s5q7option3", "s5q7option4"],
+            "opt": [
+              "s5q7option1",
+              "s5q7option2",
+              "s5q7option3",
+              "s5q7option4"
+            ],
             "ans": 1,
             "pool": "bfo"
           },
@@ -1072,7 +1934,11 @@
             "q": "s5q8",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s5q8option1", "s5q8option2", "s5q8option3"],
+            "opt": [
+              "s5q8option1",
+              "s5q8option2",
+              "s5q8option3"
+            ],
             "ans": 2,
             "pool": "demistifyingl2andl3offer"
           },
@@ -1080,7 +1946,11 @@
             "q": "s5q9",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s5q9option1", "s5q9option2", "s5q9option3"],
+            "opt": [
+              "s5q9option1",
+              "s5q9option2",
+              "s5q9option3"
+            ],
             "ans": 0,
             "pool": "demistifyingl2andl3offer"
           },
@@ -1088,7 +1958,12 @@
             "q": "s5q10",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s5q10option1", "s5q10option2", "s5q10option3", "s5q10option4"],
+            "opt": [
+              "s5q10option1",
+              "s5q10option2",
+              "s5q10option3",
+              "s5q10option4"
+            ],
             "ans": 1,
             "pool": "digitalflywheel"
           },
@@ -1096,7 +1971,11 @@
             "q": "s5q11",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s5q11option1", "s5q11option2", "s5q11option3"],
+            "opt": [
+              "s5q11option1",
+              "s5q11option2",
+              "s5q11option3"
+            ],
             "ans": 2,
             "pool": "digitalflywheel"
           },
@@ -1104,7 +1983,12 @@
             "q": "s5q12",
             "type": "MCSS",
             "optType": "text",
-            "opt": ["s5q12option1", "s5q12option2", "s5q12option3", "s5q12option4"],
+            "opt": [
+              "s5q12option1",
+              "s5q12option2",
+              "s5q12option3",
+              "s5q12option4"
+            ],
             "ans": 0,
             "pool": "valuediscoveryworkshop"
           }
@@ -1123,4 +2007,3 @@
     }
   }
 }
-

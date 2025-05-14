@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/ResultsCard.scss';
-import parentStyles from '../styles/commonStyles.scss';
 import ButtonComponent from './ButtonComponent';
 import { t } from '../helpers/LanguageTranslator';
 import '../../../public/common/assets/fonts/fonts.css';
@@ -65,7 +64,7 @@ const ResultsCardRetake = (props: ResultsCardProps) => {
     <div className={styles.contentArea}>
       <div className={styles.contentContainer}>
         <h1 id="fontLoader4" className={`${styles.title}`}>
-          {t(title)}: Section Summary
+          {t(title)}: {t('sectionSummary')}
         </h1>
 
         <div className={styles.card}>
@@ -102,7 +101,7 @@ const ResultsCardRetake = (props: ResultsCardProps) => {
           {/* Right Section - Progress Circle */}
           <div className={styles.progressSection}>
             <h3 id="fontLoader4" style={{ marginTop: '0', marginBottom: '13px', fontWeight: '500' }}>
-              Your score
+              {t('yourScore')}
             </h3>
 
             {/* <div className={styles.progressContainer}>

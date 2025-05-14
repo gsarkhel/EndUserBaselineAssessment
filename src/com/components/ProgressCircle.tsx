@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import styles from '../styles/ResultProgressCircle.scss';
-import '../../../public/common/assets/fonts/fonts.css';
+import React, { useState, useEffect } from "react";
+import styles from "../styles/ResultProgressCircle.scss";
+import "../../../public/common/assets/fonts/fonts.css";
+import { t } from "../helpers/LanguageTranslator";
 
 interface ScoreIndicatorProps {
   score: number;
   isPassed: boolean;
 }
 
-const ResultProgressCircle: React.FC<ScoreIndicatorProps> = ({ score, isPassed }) => {
+const ResultProgressCircle: React.FC<ScoreIndicatorProps> = ({
+  score,
+  isPassed,
+}) => {
   const [animatedScore, setAnimatedScore] = useState(0);
 
   useEffect(() => {
@@ -42,16 +46,23 @@ const ResultProgressCircle: React.FC<ScoreIndicatorProps> = ({ score, isPassed }
   const fillOffset = circumference - (circumference * fillPercentage) / 100;
 
   // Determine color based on score threshold
-  const progressColor = isPassed ? '#4ADE80' : '#FF9500';
+  const progressColor = isPassed ? "#4ADE80" : "#FF9500";
 
   return (
     <div className={styles.scoreContainer}>
-      <h2 className={styles.scoreTitle}>Your Overall Score</h2>
+      <h2 className={styles.scoreTitle}>{t("yourOverScore")}</h2>
       <div className={styles.scoreChartContainer}>
         {/* SVG for circular progress */}
         <svg width="120" height="120" viewBox="0 0 120 120">
           {/* Background circle (gray track) */}
-          <circle cx="60" cy="60" r={radius} stroke="#444444" strokeWidth="10" fill="none" />
+          <circle
+            cx="60"
+            cy="60"
+            r={radius}
+            stroke="#444444"
+            strokeWidth="10"
+            fill="none"
+          />
           {/* Foreground circle (progress) */}
           <circle
             cx="60"
@@ -74,4 +85,3 @@ const ResultProgressCircle: React.FC<ScoreIndicatorProps> = ({ score, isPassed }
 };
 
 export default ResultProgressCircle;
-
