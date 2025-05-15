@@ -51,7 +51,7 @@
           },
           {
             "q": "s1q2",
-            "type": "MCSS",
+            "type": "MCMS",
             "optType": "text",
             "opt": [
               "s1q2option1",
@@ -59,7 +59,11 @@
               "s1q2option3",
               "s1q2option4"
             ],
-            "ans": 3
+            "ans": [
+              0,
+              1,
+              2
+            ]
           },
           {
             "q": "s1q3",
@@ -280,23 +284,6 @@
             ]
           },
           {
-            "q": "s1q18",
-            "type": "MCMS",
-            "optType": "text",
-            "opt": [
-              "s1q18option1",
-              "s1q18option2",
-              "s1q18option3",
-              "s1q18option4"
-            ],
-            "ans": [
-              0,
-              1,
-              2,
-              3
-            ]
-          },
-          {
             "q": "s1q19",
             "type": "MCSS",
             "optType": "text",
@@ -305,22 +292,6 @@
               "s1q19option2"
             ],
             "ans": 0
-          },
-          {
-            "q": "s1q20",
-            "type": "MCMS",
-            "optType": "text",
-            "opt": [
-              "s1q20option1",
-              "s1q20option2",
-              "s1q20option3",
-              "s1q20option4"
-            ],
-            "ans": [
-              0,
-              1,
-              2
-            ]
           },
           {
             "q": "s1q21",
@@ -583,7 +554,7 @@
               "s2q11option4"
             ],
             "ans": 1,
-            "pool": "esxit"
+            "pool": "esxbuilding"
           },
           {
             "q": "s2q12",
@@ -599,7 +570,7 @@
               1,
               3
             ],
-            "pool": "esxit"
+            "pool": "esxbuilding"
           },
           {
             "q": "s2q13",
@@ -616,7 +587,7 @@
               2,
               3
             ],
-            "pool": "esxit"
+            "pool": "esxbuilding"
           },
           {
             "q": "s2q14",
@@ -633,7 +604,7 @@
               2,
               3
             ],
-            "pool": "esxit"
+            "pool": "esxbuilding"
           },
           {
             "q": "s2q15",
@@ -649,7 +620,7 @@
               0,
               1
             ],
-            "pool": "esxit"
+            "pool": "esxbuilding"
           },
           {
             "q": "s2q16",
@@ -666,7 +637,7 @@
               2,
               3
             ],
-            "pool": "esxit"
+            "pool": "esxbuilding"
           },
           {
             "q": "s2q17",
@@ -682,7 +653,7 @@
               1,
               3
             ],
-            "pool": "esxit"
+            "pool": "esxbuilding"
           },
           {
             "q": "s2q18",
@@ -693,7 +664,7 @@
               "s2q18option2"
             ],
             "ans": 0,
-            "pool": "esxit"
+            "pool": "esxbuilding"
           },
           {
             "q": "s2q19",
@@ -705,7 +676,7 @@
               "s2q19option3"
             ],
             "ans": 2,
-            "pool": "esxit"
+            "pool": "esxbuilding"
           },
           {
             "q": "s2q20",
@@ -723,7 +694,7 @@
               2,
               3
             ],
-            "pool": "esxit"
+            "pool": "esxbuilding"
           },
           {
             "q": "s2q21",
@@ -736,7 +707,7 @@
               "s2q21option4"
             ],
             "ans": 0,
-            "pool": "esxbuilding"
+            "pool": "esxit"
           },
           {
             "q": "s2q22",
@@ -753,7 +724,7 @@
               1,
               2
             ],
-            "pool": "esxbuilding"
+            "pool": "esxit"
           },
           {
             "q": "s2q23",
@@ -766,7 +737,7 @@
               "s2q23option4"
             ],
             "ans": 0,
-            "pool": "esxbuilding"
+            "pool": "esxit"
           },
           {
             "q": "s2q24",
@@ -777,7 +748,7 @@
               "s2q24option2"
             ],
             "ans": 0,
-            "pool": "esxbuilding"
+            "pool": "esxit"
           },
           {
             "q": "s2q25",
@@ -791,7 +762,7 @@
               "s2q25option5"
             ],
             "ans": 4,
-            "pool": "esxbuilding"
+            "pool": "esxit"
           }
         ]
       },
