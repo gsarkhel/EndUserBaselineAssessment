@@ -24,6 +24,8 @@ export interface generalConfigInterface {
   activityName: string;
   showIcons: boolean;
   shuffleQuestions: boolean;
+  retakeStartDate?: string;
+  isCustomDateAvailable?: boolean;
 }
 
 export interface extendedTabs extends tabsInterface {

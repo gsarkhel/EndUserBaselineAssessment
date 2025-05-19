@@ -1974,7 +1974,9 @@
       "totalAttempts": 5,
       "activityName": "headerText",
       "showIcons": false,
-      "shuffleQuestions": true
+      "shuffleQuestions": true,
+      "isCustomDateAvailable": true,
+      "retakeStartDate": "05-30-2025"
     }
   }
 }

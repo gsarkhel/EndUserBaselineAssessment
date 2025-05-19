@@ -49,7 +49,11 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
   const timeIntervalInMs = _general.timeForNext * 60 * 1000; // Convert minutes to milliseconds
   // const hasTimeIntervalPassed = startScreen == 'results' && scormData.totalAttempts > 0 ? true : Date.now() >= lastAttemptDate?.getTime() + timeIntervalInMs;
   const hasTimeIntervalPassed =
-    scormData.totalAttempts > 0 ? true : Date.now() >= lastAttemptDate?.getTime() + timeIntervalInMs;
+    scormData.totalAttempts > 0
+      ? true
+      : _general.isCustomDateAvailable
+      ? Date.now() >= new Date(_general.retakeStartDate).getTime()
+      : Date.now() >= lastAttemptDate?.getTime() + timeIntervalInMs;
 
   const pdfRef = useRef<HTMLDivElement>(null);
 
@@ -145,8 +149,13 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
   };
 
   const getFormattedTimeRemaining = () => {
-    const timeRemainingMs = Math.max(0, lastAttemptDate?.getTime() + timeIntervalInMs - Date.now());
-
+    let timeRemainingMs = Math.max(0, lastAttemptDate?.getTime() + timeIntervalInMs - Date.now());
+    if (_general.isCustomDateAvailable) {
+      timeRemainingMs = Math.max(0, new Date(_general.retakeStartDate).getTime() - Date.now());
+      // Only show days
+      const days = Math.ceil(timeRemainingMs / (24 * 60 * 60 * 1000));
+      return days > 0 ? `${days} day${days !== 1 ? 's' : ''}` : '0 days';
+    }
     // Round up to nearest hour first
     const totalHoursRoundedUp = Math.ceil(timeRemainingMs / (60 * 60 * 1000));
     const totalMs = totalHoursRoundedUp * 60 * 60 * 1000;
