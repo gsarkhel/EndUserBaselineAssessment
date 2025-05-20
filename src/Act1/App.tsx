@@ -4,17 +4,28 @@ import HomePage from '../com/components/HomePage';
 import PrivacynoticePage from '../com/components/PrivacynoticePage';
 import AssessmentInstrPage from '../com/components/AssessmentInstrPage';
 import ActivityController from '../com/components/ActivityController';
-import { generateShuffledFromArray, generateShuffledNumbers } from '../com/helpers/helperFunction';
+import {
+  generateShuffledFromArray,
+  generateShuffledNumbers,
+} from '../com/helpers/helperFunction';
 import CertificationCard from '../com/components/CertificationCard';
 import PdfButton from '../com/components/PdfButton';
 import PDFContent from '../com/components/PDFContent';
 import AssessmentReport from '../com/components/AssesmentReport/AssessmentReportMain';
 
 const App = () => {
-  const { setStartTime } = globalStore.useStoreActions((store) => store.activity);
-  const { valuesObj, images } = globalStore.useStoreState((store) => store.player);
-  const { setLocation, saveData } = globalStore.useStoreActions((store) => store.scromInfo);
-  const { location, scormData } = globalStore.useStoreState((store) => store.scromInfo);
+  const { setStartTime } = globalStore.useStoreActions(
+    (store) => store.activity
+  );
+  const { valuesObj, images } = globalStore.useStoreState(
+    (store) => store.player
+  );
+  const { setLocation, saveData } = globalStore.useStoreActions(
+    (store) => store.scromInfo
+  );
+  const { location, scormData } = globalStore.useStoreState(
+    (store) => store.scromInfo
+  );
 
   useEffect(() => {
     // @ts-ignore
@@ -37,7 +48,11 @@ const App = () => {
         let questions: number[];
         if (typeof _ques == 'number') {
           if (valuesObj.generalConfig.shuffleQuestions) {
-            questions = generateShuffledNumbers(0, _tabs[_t].questionBank?.length - 1 || 0, _ques);
+            questions = generateShuffledNumbers(
+              0,
+              _tabs[_t].questionBank?.length - 1 || 0,
+              _ques
+            );
           } else {
             questions = Array(_ques)
               .fill(3)
@@ -53,7 +68,10 @@ const App = () => {
                 .filter((_k) => _k !== undefined) || [];
             let categoryIndices: number[];
             if (valuesObj.generalConfig.shuffleQuestions) {
-              categoryIndices = generateShuffledFromArray(categoryQuestions, count as number);
+              categoryIndices = generateShuffledFromArray(
+                categoryQuestions,
+                count as number
+              );
             } else {
               categoryIndices = Array(count)
                 .fill(3)
@@ -96,29 +114,41 @@ const App = () => {
   };
 
   const extractScore = () => {
+    // var _arr = [70, 60, 48, 75, 60]; // Debug purpose only.
     const _fObj: { [key: string]: number } = {};
     let _avg = 0;
-    Object.keys(scormData.tabs).forEach((_t) => {
+    Object.keys(scormData.tabs).forEach((_t, _i) => {
+      // scormData.tabs[_t].score = _arr[_i]; // Debug purpose only.
       _fObj[_t] = scormData.tabs[_t].score;
       _avg += scormData.tabs[_t].score;
     });
-    return { scores: _fObj, average: _avg / Object.keys(scormData.tabs).length };
+    _avg = Math.round(_avg / Object.keys(scormData.tabs).length);
+    return {
+      scores: _fObj,
+      average: _avg,
+    };
   };
 
   if (location.includes('mainActivity')) {
     const selectedTab = location.split('_')[1];
     const page = location.split('_')[2];
     const question = location.split('_')[3];
-    return <ActivityController page={page} selectedTab={selectedTab} activeQuestion={Number(question)} />;
+    return (
+      <ActivityController
+        page={page}
+        selectedTab={selectedTab}
+        activeQuestion={Number(question)}
+      />
+    );
   }
 
   switch (location) {
     case 'home':
       return (
         <HomePage
-          title="colocation"
-          heading="associateCertification"
-          description="homeDescription"
+          title='colocation'
+          heading='associateCertification'
+          description='homeDescription'
           clickHandler={() => {
             setLocation('privacy');
           }}
@@ -127,8 +157,8 @@ const App = () => {
     case 'privacy':
       return (
         <PrivacynoticePage
-          title="privacytitleText"
-          description="privacynoticeText"
+          title='privacytitleText'
+          description='privacynoticeText'
           clickHandler={() => {
             setLocation('assessmentInstr');
           }}
@@ -137,8 +167,8 @@ const App = () => {
     case 'assessmentInstr':
       return (
         <AssessmentInstrPage
-          title="assessmentInstructionsTitle"
-          description="assessmentInstructions"
+          title='assessmentInstructionsTitle'
+          description='assessmentInstructions'
           clickHandler={startAssessment}
         />
       );
@@ -171,4 +201,3 @@ const App = () => {
 };
 
 export default App;
-
