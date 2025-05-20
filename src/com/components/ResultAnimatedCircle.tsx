@@ -34,7 +34,7 @@ const CircularProgressBar = ({ value = 78 }) => {
   const dashOffset = circumference - (progress / 100) * circumference;
   
   // Determine color based on the threshold (65%)
-  const isPassed = progress > 65;
+  const isPassed = progress >= 65;
   const progressColor = isPassed ? '#3ccd57' : '#e37e00';
   
   return (
