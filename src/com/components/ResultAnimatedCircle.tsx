@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/ResultAnimatedCircle.scss';
+import globalStore from '../thunk';
 
 const CircularProgressBar = ({ value = 78 }) => {
   const [animatedValue, setAnimatedValue] = useState(0);
+  const { valuesObj } = globalStore.useStoreState((store) => store.player);
 
   useEffect(() => {
     let startTime: number | null = null;
@@ -34,7 +36,7 @@ const CircularProgressBar = ({ value = 78 }) => {
   const dashOffset = circumference - (progress / 100) * circumference;
   
   // Determine color based on the threshold (65%)
-  const isPassed = progress >= 65;
+  const isPassed = progress >= valuesObj.generalConfig.passingCriteria;
   const progressColor = isPassed ? '#3ccd57' : '#e37e00';
   
   return (

@@ -24,8 +24,8 @@ const ResultsCardRetake = (props: ResultsCardProps) => {
   const { valuesObj } = globalStore.useStoreState((store) => store.player);
   const { scormData } = globalStore.useStoreState((store) => store.scromInfo);
 
-  const percentage = props.percentage || Number(((correctResponses / questionsAttempted) * 100).toFixed(0));
-  const isPassed = percentage > 65;
+  const percentage = Math.round(props.percentage || Number(((correctResponses / questionsAttempted) * 100).toFixed(0)));
+  const isPassed = percentage >= valuesObj.generalConfig.passingCriteria;
   const statusMessage = isPassed
     ? t('youPassed')
     : t('youFailed1').replace('{passing}', `${valuesObj.generalConfig.passingCriteria}`);
