@@ -50,10 +50,12 @@ const CertificationCard = (props: CertificationCardPropsInterface) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const _general = valuesObj.generalConfig;
-  let _tPass = false;
-  Object.keys(scores).every((_i) => {
-    _tPass = scores[_i] >= _general.passingCriteria;
-  });
+  let _tPass = true;
+  for(let _i in scores){
+    if (scores[_i] < _general.passingCriteria) {
+      _tPass = false;
+    }
+  }
   const isPassed = average >= _general.passingCriteria && _tPass;
 
   const lastAttemptDate = new Date(
