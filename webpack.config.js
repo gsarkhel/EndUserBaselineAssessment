@@ -128,13 +128,15 @@ module.exports = (env) => {
           groupBy: [
             ...(() => {
               const _fs = fs.readdirSync('./public/common/assets/locale/', {
-                withFileTypes: false,
+                withFileTypes: true,
               });
 
-              return _fs.map((_f) => ({
-                pattern: `{./public/common/assets/locale/${_f},./public/${_data}/locale/${_f}}`,
-                fileName: `/locale/${_f}`,
-              }));
+              return _fs
+                .filter((dirent) => dirent.isFile() && !dirent.name.startsWith('.'))
+                .map((dirent) => ({
+                  pattern: `{./public/common/assets/locale/${dirent.name},./public/${_data}/locale/${dirent.name}}`,
+                  fileName: `/locale/${dirent.name}`,
+                }));
             })(),
             {
               pattern: `{./public/config.json,./public/${_data}/config.json}`,
@@ -160,8 +162,12 @@ module.exports = (env) => {
     resolve(webpackObj);
   };
   return new Promise((resolve, reject) => {
-    let files = fs.readdirSync('./src/', { withFileTypes: false });
-    files = files.filter((_file) => ['com'].indexOf(_file) === -1);
+    let files = fs.readdirSync('./src/', { withFileTypes: true });
+    files = files
+      .filter((dirent) => dirent.isDirectory() && !dirent.name.startsWith('.'))
+      .map((dirent) => dirent.name)
+      .filter((_file) => ['com'].indexOf(_file) === -1);
+    
     if (env.simName == undefined) {
       const prompt = new AutoComplete({
         name: 'fileName',

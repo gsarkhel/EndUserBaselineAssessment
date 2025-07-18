@@ -4,8 +4,8 @@
   "description": "Schneider EU Assessment",
   "main": "",
   "scripts": {
-    "start": "cross-env NODE_ENV=development GETTER_SETTER_ENABLED=true webpack-dev-server --open",
-    "build": "cross-env NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=development GETTER_SETTER_ENABLED=true LOGGER_ENABLED=false webpack-dev-server --open",
+    "build": "cross-env NODE_ENV=production LOGGER_ENABLED=false webpack",
     "buildWithSave": "cross-env NODE_ENV=production GETTER_SETTER_ENABLED=true webpack",
     "prettier": "prettier --write",
     "test": "cross-env GETTER_SETTER_ENABLED=true jest --no-cache",
