@@ -1,7 +1,7 @@
 /** @format */
 
 import { action, Action, Thunk, thunk } from 'easy-peasy';
-import { getData, initalizeScrom, setData, setMultipleData, terminate } from '../helpers/scrom';
+import { getData, initalizeScrom, setData, setMultipleData, terminate, sanitizeString } from '../helpers/scrom';
 import { anyObject } from '../interface/playerInterface';
 import { ScromInfoModel, storeModel } from '../interface/storeInterface';
 import { t } from '../helpers/LanguageTranslator';
@@ -134,30 +134,24 @@ const ScromInfo: ScromInfoModel = {
       {
         _params: `cmi.interactions.${index}.learner_response`,
         _value: (data?.response || [])
-          ?.map((_o) => (_o || '').replaceAll(',', ''))
-          .join('[,]')
-          .replaceAll('(', '')
-          .replaceAll(')', '')
-          .replaceAll(' ', '_'),
+          ?.map((_o) => sanitizeString(_o || ''))
+          .join('[,]'),
       },
       { _params: `cmi.interactions.${index}.result`, _value: data?.feedback },
       {
         _params: `cmi.interactions.${index}.correct_responses.0.pattern`,
         _value: (data?.answer || [])
-          ?.map((_o) => (_o || '').replaceAll(',', ''))
-          .join('[,]')
-          .replaceAll('(', '')
-          .replaceAll(')', '')
-          .replaceAll(' ', '_'),
+          ?.map((_o) => sanitizeString(_o || ''))
+          .join('[,]'),
       },
       {
         _params: `cmi.interactions.${index}.description`,
-        _value: data?.question.replaceAll('(', '').replaceAll(')', '').replaceAll(' ', '_'),
+        _value: sanitizeString(data?.question),
       },
       { _params: `cmi.interactions.${index}.weighting`, _value: data?.weightage },
       {
         _params: `cmi.interactions.${index}.objectives.0.id`,
-        _value: t(valuesObj.generalConfig.activityName).replaceAll('(', '').replaceAll(')', '').replaceAll(' ', '_'),
+        _value: sanitizeString(t(valuesObj.generalConfig.activityName)),
       },
       { _params: `cmi.interactions.${index}.timestamp`, _value: timestamp },
       { _params: `cmi.interactions.${index}.latency`, _value: latencyTime },

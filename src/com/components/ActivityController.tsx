@@ -7,6 +7,7 @@ import SummaryScreen from './SummaryScreen';
 import ResultsCard from './ResultsCard';
 import MainAssessment from './MainAssessment';
 import { t } from '../helpers/LanguageTranslator';
+import { sanitizeString } from '../helpers/scrom';
 import ResultsCardRetake from './ResultsCardRetake';
 import { generateShuffledFromArray, generateShuffledNumbers } from '../helpers/helperFunction';
 
@@ -189,10 +190,7 @@ const ActivityController = (props: activityControllerPropsInterface) => {
     setInterations({
       index: _qCount,
       data: {
-        id: `attempt_${scormData.totalAttempts + 1}_${t(tabs[activeTab]?.title)
-          .replaceAll(' ', '_')
-          .replaceAll('&', 'n')
-          .replaceAll(',', '')}_${_nQues}`,
+        id: `attempt_${scormData.totalAttempts + 1}_${sanitizeString(t(tabs[activeTab]?.title))}_${_nQues}`,
         response: _optStr.map((_t) => t(_t)),
         feedback:
           _ques.weightage !== undefined

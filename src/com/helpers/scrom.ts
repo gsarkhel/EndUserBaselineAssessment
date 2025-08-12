@@ -8,6 +8,66 @@ declare global {
 }
 
 /**
+ * Global utility function to sanitize strings for SCORM compatibility
+ * Replaces problematic characters that might cause issues in SCORM data
+ * @param str - The string to sanitize
+ * @returns The sanitized string
+ */
+export const sanitizeString = (str: string): string => {
+  if (!str) return '';
+  
+  return str
+    // Basic replacements for SCORM compatibility
+    .replaceAll(' ', '_')
+    .replaceAll('&', 'n')
+    .replaceAll(',', '')
+    .replaceAll('(', '')
+    .replaceAll(')', '')
+    // Additional problematic characters
+    .replaceAll(':', '_')  // Colon can cause issues in some systems
+    .replaceAll(';', '_')  // Semicolon can be problematic
+    .replaceAll('"', '')   // Double quotes can break JSON/XML
+    .replaceAll("'", '')   // Single quotes can break JSON/XML
+    .replaceAll('<', '')   // Less than can break XML/HTML
+    .replaceAll('>', '')   // Greater than can break XML/HTML
+    .replaceAll('[', '')   // Square brackets can cause parsing issues
+    .replaceAll(']', '')   // Square brackets can cause parsing issues
+    .replaceAll('{', '')   // Curly braces can cause parsing issues
+    .replaceAll('}', '')   // Curly braces can cause parsing issues
+    .replaceAll('|', '_')  // Pipe can be problematic in some contexts
+    .replaceAll('\\', '_') // Backslash can cause path issues
+    .replaceAll('/', '_')  // Forward slash can cause path issues
+    .replaceAll('?', '')   // Question mark can cause URL issues
+    .replaceAll('*', '')   // Asterisk can cause file system issues
+    .replaceAll('#', '')   // Hash can cause URL issues
+    .replaceAll('%', '')   // Percent can cause URL encoding issues
+    .replaceAll('@', 'at') // At symbol can cause email parsing issues
+    .replaceAll('!', '')   // Exclamation mark can cause parsing issues
+    .replaceAll('$', '')   // Dollar sign can cause variable parsing issues
+    .replaceAll('^', '')   // Caret can cause regex issues
+    .replaceAll('+', 'plus') // Plus can cause URL encoding issues
+    .replaceAll('=', '')   // Equals can cause parsing issues
+    .replaceAll('~', '')   // Tilde can cause URL issues
+    .replaceAll('`', '')   // Backtick can cause code injection issues
+    .replaceAll('°', 'deg') // Degree symbol
+    .replaceAll('©', 'c')  // Copyright symbol
+    .replaceAll('®', 'r')  // Registered trademark
+    .replaceAll('™', 'tm') // Trademark
+    .replaceAll('–', '-')  // En dash
+    .replaceAll('—', '-')  // Em dash
+    .replaceAll('…', '...') // Ellipsis
+    // Handle smart quotes and apostrophes with regex to avoid syntax issues
+    .replace(/[""]/g, '')   // Smart quotes
+    .replace(/['']/g, '')   // Smart apostrophes
+    // Remove any remaining non-ASCII characters
+    .replace(/[^\x00-\x7F]/g, '')
+    // Clean up multiple consecutive underscores
+    .replace(/_+/g, '_')
+    // Remove leading/trailing underscores
+    .replace(/^_+|_+$/g, '');
+};
+
+/**
  * Wrapper function for scorm.set that captures the callback and shows error alerts
  * when the operation fails (returns false)
  */
