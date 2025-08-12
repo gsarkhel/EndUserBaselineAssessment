@@ -7,6 +7,7 @@ import Background from './components/Background';
 import Header from './components/Header';
 import style from './styles/mainPlayer.scss';
 import Footer from './components/Footer';
+import ErrorBoundary from './components/ErrorBoundary';
 
 /**
  * Main Player Component that every App renders
@@ -140,35 +141,42 @@ const MainPlayerComponent = (props: playerInterface) => {
    *  render Language Translator element
    */
   return (
-    <LanguageTranslator languageFile={languageFile}>
-      <div
-        id="mainDiv"
-        data-testid="main-div"
-        style={{
-          transform: `scale(${scale})`,
-          transformOrigin: 'left top',
-          position: 'absolute',
-          top: yPadding,
-          left: xPadding,
-          display: 'block',
-          // width: 0,
-          // height: 0,
-          width: width,
-          height: height,
-          overflow: 'hidden',
-        }}
-      >
-        <div aria-live="polite" tabIndex={-1} className={style.infoDiv}>
-          {altString}
+    <ErrorBoundary 
+      errorMessage="Failed to load application configuration. Please refresh the page or contact support."
+      onError={(error, errorInfo) => {
+        console.error('Configuration/SCORM error:', error, errorInfo);
+      }}
+    >
+      <LanguageTranslator languageFile={languageFile}>
+        <div
+          id="mainDiv"
+          data-testid="main-div"
+          style={{
+            transform: `scale(${scale})`,
+            transformOrigin: 'left top',
+            position: 'absolute',
+            top: yPadding,
+            left: xPadding,
+            display: 'block',
+            // width: 0,
+            // height: 0,
+            width: width,
+            height: height,
+            overflow: 'hidden',
+          }}
+        >
+          <div aria-live="polite" tabIndex={-1} className={style.infoDiv}>
+            {altString}
+          </div>
+          <Background />
+          <div style={{ position: 'absolute', top: 0, left: 0, width: width, height: height }}>
+            <Header />
+            {setupChildren(props.children, {})}
+            <Footer />
+          </div>
         </div>
-        <Background />
-        <div style={{ position: 'absolute', top: 0, left: 0, width: width, height: height }}>
-          <Header />
-          {setupChildren(props.children, {})}
-          <Footer />
-        </div>
-      </div>
-    </LanguageTranslator>
+      </LanguageTranslator>
+    </ErrorBoundary>
   );
 };
 

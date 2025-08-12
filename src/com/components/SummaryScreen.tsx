@@ -6,6 +6,7 @@ import { t } from '../helpers/LanguageTranslator';
 import globalStore from '../thunk';
 import ButtonComponent from './ButtonComponent';
 import '../../../public/common/assets/fonts/fonts.css';
+import ErrorBoundary from './ErrorBoundary';
 
 interface summaryScreenPropsInterface {
   title: string;
@@ -23,7 +24,19 @@ const SummaryScreen = (props: summaryScreenPropsInterface) => {
       <div className={styles.contentArea}>
         <div className={styles.contentContainer}>
           <h1 className={styles.segmentTitle}>{t(title)}</h1>
-          <div className={styles.segmentDescription}>{parse(t(description) || '')}</div>
+          <ErrorBoundary 
+            errorMessage="Summary content could not be loaded. Please try refreshing the page or contact support."
+            onError={(error, errorInfo) => {
+              console.error('Summary content parsing error:', error, errorInfo);
+            }}
+            fallback={
+              <div className={styles.segmentDescription}>
+                <p>Summary content is temporarily unavailable. Please try refreshing the page or contact support.</p>
+              </div>
+            }
+          >
+            <div className={styles.segmentDescription}>{parse(t(description) || '')}</div>
+          </ErrorBoundary>
           <div className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles.button1} `}>
             <ButtonComponent text={t('submit')} clickHandler={clickHandler} />
           </div>

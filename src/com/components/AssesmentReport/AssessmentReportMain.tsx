@@ -19,6 +19,7 @@ import {
   PlayerStoreModel,
 } from "../../interface/storeInterface";
 import { t } from "../../helpers/LanguageTranslator";
+import ErrorBoundary from "../ErrorBoundary";
 
 interface AssessmentData {
   overallScore: number;
@@ -32,8 +33,8 @@ interface AssessmentData {
 }
 
 interface assessmentDataProps {
-  data?: AssessmentData;
-  images?: PlayerStoreModel["images"];
+  data: AssessmentData;
+  images: any;
   isPassed?: boolean;
 }
 
@@ -51,54 +52,80 @@ const AssessmentReport = (props: assessmentDataProps) => {
   }, []);
 
   return (
-    <div style={{ width: "100%", height: "100%" }}>
-      <div className={styles.reportContainer}>
-        <div
-          className={styles.reportCard}
-          style={{
-            width: "764px",
-            height: "980px",
-            padding: "0 40px",
-            backgroundImage: images.certificateBG?.url
-              ? `url(${images.certificateBG.url})`
-              : "none",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            position: "relative",
-          }}
-        >
-          <div className={styles.pdflogo}>
-            <img src={images.pdflogo?.url} alt={""} />
+    <ErrorBoundary 
+      errorMessage="Assessment report could not be generated. Please try again or contact support."
+      onError={(error, errorInfo) => {
+        console.error('Assessment report error:', error, errorInfo);
+      }}
+      fallback={
+        <div style={{
+          width: "764px",
+          height: "980px",
+          padding: "0 40px",
+          backgroundColor: "#f8f9fa",
+          border: "1px solid #dee2e6",
+          borderRadius: "8px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center"
+        }}>
+          <div>
+            <h3>Report Generation Failed</h3>
+            <p>The assessment report could not be generated. Please try refreshing the page or contact support.</p>
           </div>
-
-          <h3 className={styles.headingtop}>{t("pdfHeaderText")}</h3>
-          <div className={styles.backDiv} style={{ height: height }}></div>
-          <div className={styles.innerCont}>
-            <Header title={t("headerTitle")} />
-
-            <div className="d-flex justify-content-center mt-4 mb-4">
-              <CircleProgressBar
-                isPassed={isPassed}
-                value={assessmentData.overallScore}
-                enableAnimate={false}
-              />
+        </div>
+      }
+    >
+      <div style={{ width: "100%", height: "100%" }}>
+        <div className={styles.reportContainer}>
+          <div
+            className={styles.reportCard}
+            style={{
+              width: "764px",
+              height: "980px",
+              padding: "0 40px",
+              backgroundImage: images.certificateBG?.url
+                ? `url(${images.certificateBG.url})`
+                : "none",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              position: "relative",
+            }}
+          >
+            <div className={styles.pdflogo}>
+              <img src={images.pdflogo?.url} alt={""} />
             </div>
 
-            <SectionScores
-              sectionScores={assessmentData.sectionScores}
-              passingScore={assessmentData.passingScore}
-            />
+            <h3 className={styles.headingtop}>{t("pdfHeaderText")}</h3>
+            <div className={styles.backDiv} style={{ height: height }}></div>
+            <div className={styles.innerCont}>
+              <Header title={t("headerTitle")} />
 
-            <AssessmentFooter overallScore={assessmentData.overallScore} />
-          </div>
-          <div className={styles.timerContainer}>
-            <p>
-              {t("generated")}: {new Date().toLocaleString()}
-            </p>
+              <div className="d-flex justify-content-center mt-4 mb-4">
+                <CircleProgressBar
+                  isPassed={isPassed}
+                  value={assessmentData.overallScore}
+                  enableAnimate={false}
+                />
+              </div>
+
+              <SectionScores
+                sectionScores={assessmentData.sectionScores}
+                passingScore={assessmentData.passingScore}
+              />
+
+              <AssessmentFooter overallScore={assessmentData.overallScore} />
+            </div>
+            <div className={styles.timerContainer}>
+              <p>
+                {t("generated")}: {new Date().toLocaleString()}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 };
 

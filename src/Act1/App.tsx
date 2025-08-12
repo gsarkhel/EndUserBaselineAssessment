@@ -12,6 +12,7 @@ import CertificationCard from '../com/components/CertificationCard';
 import PdfButton from '../com/components/PdfButton';
 import PDFContent from '../com/components/PDFContent';
 import AssessmentReport from '../com/components/AssesmentReport/AssessmentReportMain';
+import ErrorBoundary from '../com/components/ErrorBoundary';
 
 const App = () => {
   const { setStartTime } = globalStore.useStoreActions(
@@ -134,11 +135,18 @@ const App = () => {
     const page = location.split('_')[2];
     const question = location.split('_')[3];
     return (
-      <ActivityController
-        page={page}
-        selectedTab={selectedTab}
-        activeQuestion={Number(question)}
-      />
+      <ErrorBoundary 
+        errorMessage="There was an error loading the assessment. Please try again or contact support."
+        onError={(error, errorInfo) => {
+          console.error('Assessment error:', error, errorInfo);
+        }}
+      >
+        <ActivityController
+          page={page}
+          selectedTab={selectedTab}
+          activeQuestion={Number(question)}
+        />
+      </ErrorBoundary>
     );
   }
 

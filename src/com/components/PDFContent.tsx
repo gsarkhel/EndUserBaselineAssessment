@@ -4,6 +4,7 @@ import AssessmentReport from './AssesmentReport/AssessmentReportMain';
 import { PDFViewer } from '@react-pdf/renderer';
 import globalStore from '../thunk';
 import { t } from '../helpers/LanguageTranslator';
+import ErrorBoundary from './ErrorBoundary';
 
 const PDFContent = forwardRef<HTMLDivElement>((_, ref) => {
   const assessmentData = {
@@ -31,9 +32,35 @@ const PDFContent = forwardRef<HTMLDivElement>((_, ref) => {
   });
 
   return (
-    <PDFViewer width="791" height="1123">
-      <AssessmentReport data={assessmentData} images={images} />
-    </PDFViewer>
+    <ErrorBoundary 
+      errorMessage="PDF could not be generated. Please try again or contact support."
+      onError={(error, errorInfo) => {
+        console.error('PDF generation error:', error, errorInfo);
+      }}
+      fallback={
+        <div style={{
+          width: '791px',
+          height: '1123px',
+          backgroundColor: '#f8f9fa',
+          border: '1px solid #dee2e6',
+          borderRadius: '8px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '40px',
+          textAlign: 'center'
+        }}>
+          <div>
+            <h3>PDF Generation Failed</h3>
+            <p>The certificate PDF could not be generated. Please try refreshing the page or contact support.</p>
+          </div>
+        </div>
+      }
+    >
+      <PDFViewer width="791" height="1123">
+        <AssessmentReport data={assessmentData} images={images} />
+      </PDFViewer>
+    </ErrorBoundary>
   );
 });
 

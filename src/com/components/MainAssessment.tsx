@@ -4,6 +4,7 @@ import parentStyles from '../styles/commonStyles.scss';
 import { t } from '../helpers/LanguageTranslator';
 import ButtonComponent from './ButtonComponent';
 import globalStore from '../thunk';
+import ErrorBoundary from './ErrorBoundary';
 
 interface AssessmentPropsInterface {
   clickHandler?: Function;
@@ -74,64 +75,82 @@ const MainAssessment = (props: AssessmentPropsInterface) => {
   return (
     <div>
       <div className={styles.contentArea}>
-        <div ref={divRef} className={styles.contentContainer}>
-          <div className={styles.mainContainer}>
-            <h2 className={styles.title}>{t(qText)}</h2>
+        <ErrorBoundary 
+          errorMessage="There was an error loading this question. Please try again or contact support."
+          onError={(error, errorInfo) => {
+            console.error('Question rendering error:', error, errorInfo);
+          }}
+          fallback={
+            <div className={styles.contentContainer}>
+              <div className={styles.mainContainer}>
+                <h2 className={styles.title}>Question temporarily unavailable</h2>
+                <p>This question could not be loaded. Please try refreshing the page or contact support.</p>
+                <div className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles.button1}`}>
+                  <ButtonComponent text="Skip Question" clickHandler={() => clickHandler([])} />
+                </div>
+              </div>
+            </div>
+          }
+        >
+          <div ref={divRef} className={styles.contentContainer}>
+            <div className={styles.mainContainer}>
+              <h2 className={styles.title}>{t(qText)}</h2>
 
-            <div className={styles.optionsContainer}>
-              {optionsOrder?.map((optionNum, index) => (
-                <div
-                  key={index}
-                  className={`${styles.optionCard} ${selectedOption.includes(index) && styles.selected} ${
-                    optionType == 'image' && styles.halfFlex
-                  }`}
-                  onClick={() => handleOptionSelect(index)}
-                >
-                  {/* <div className={styles.radioContainer}>
-                  <input                    
-                    type={type}
-                    name="assessmentOption"
-                    onChange={() => handleOptionSelect(index)}
-                    value={String(selectedOption.includes(index))}
-                    checked={selectedOption.includes(index)}
-                    className={styles.customRadio}
-                  />
-                </div> */}
-                  <div className={styles.radioContainer}>
-                    <input
-                      disabled={recheckMode}
-                      type={type === 'checkbox' ? 'checkbox' : 'radio'}
+              <div className={styles.optionsContainer}>
+                {optionsOrder?.map((optionNum, index) => (
+                  <div
+                    key={index}
+                    className={`${styles.optionCard} ${selectedOption.includes(index) && styles.selected} ${
+                      optionType == 'image' && styles.halfFlex
+                    }`}
+                    onClick={() => handleOptionSelect(index)}
+                  >
+                    {/* <div className={styles.radioContainer}>
+                    <input                    
+                      type={type}
                       name="assessmentOption"
-                      onChange={() => !recheckMode && handleOptionSelect(index)}
+                      onChange={() => handleOptionSelect(index)}
                       value={String(selectedOption.includes(index))}
                       checked={selectedOption.includes(index)}
-                      className={`${recheckMode ? styles.disabled : ''} ${
-                        type === 'checkbox' ? styles.customCheckbox : styles.customRadio
-                      }`}
+                      className={styles.customRadio}
                     />
-                  </div>
+                  </div> */}
+                    <div className={styles.radioContainer}>
+                      <input
+                        disabled={recheckMode}
+                        type={type === 'checkbox' ? 'checkbox' : 'radio'}
+                        name="assessmentOption"
+                        onChange={() => !recheckMode && handleOptionSelect(index)}
+                        value={String(selectedOption.includes(index))}
+                        checked={selectedOption.includes(index)}
+                        className={`${recheckMode ? styles.disabled : ''} ${
+                          type === 'checkbox' ? styles.customCheckbox : styles.customRadio
+                        }`}
+                      />
+                    </div>
 
-                  <label htmlFor="assessmentOption" className={styles.optionText}>
-                    {optionType == 'text' && t(options[optionNum])}
-                    {optionType == 'image' && (
-                      <div className={styles.imageContainer}>
-                        <img
-                          src={images[options[optionNum]]?.url}
-                          alt={`Option ${index + 1}`}
-                          className={styles.optionImage}
-                        />
-                      </div>
-                    )}
-                  </label>
-                </div>
-              ))}
+                    <label htmlFor="assessmentOption" className={styles.optionText}>
+                      {optionType == 'text' && t(options[optionNum])}
+                      {optionType == 'image' && (
+                        <div className={styles.imageContainer}>
+                          <img
+                            src={images[options[optionNum]]?.url}
+                            alt={`Option ${index + 1}`}
+                            className={styles.optionImage}
+                          />
+                        </div>
+                      )}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles.button1}`}>
+              <ButtonComponent text={t('submit1')} disabled={selectedOption.length == 0} clickHandler={submitQuestions} />
             </div>
           </div>
-
-          <div className={`${parentStyles.fullWidth} ${parentStyles.displayCenter} ${styles.button1}`}>
-            <ButtonComponent text={t('submit1')} disabled={selectedOption.length == 0} clickHandler={submitQuestions} />
-          </div>
-        </div>
+        </ErrorBoundary>
       </div>
     </div>
   );

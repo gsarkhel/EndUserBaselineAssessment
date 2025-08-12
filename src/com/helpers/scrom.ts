@@ -105,8 +105,8 @@ const safeScormCommit = (): boolean => {
 };
 
 export const initalizeScrom = () => {
-  // Temporarily disable logger
-  LogWindowHelper.setLoggerEnabled(false);
+  // Enable logger
+  LogWindowHelper.setLoggerEnabled(true);
   
   // scorm.handleExitMode is to remove the default feature of marking cmi.exit
   window.logger = new LogWindowHelper();

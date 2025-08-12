@@ -6,6 +6,7 @@ import parse from 'html-react-parser';
 import ButtonComponent from './ButtonComponent';
 import "../../../public/common/assets/fonts/fonts.css";
 import VideoPlayer from './VideoPlayer';
+import ErrorBoundary from './ErrorBoundary';
 
 interface AssessmentInterface {
   title?: string;
@@ -40,7 +41,19 @@ const AssessmentInstrPage = (props: AssessmentInterface) => {
     <div className={styles.main}>
       <div className={styles.mainContainer}>
         <h2 className={styles.title}>{t(title)}</h2>
-        <div className={styles.disContainer}>{parse(t(description) || '')}</div>
+        <ErrorBoundary 
+          errorMessage="Instructions are currently unavailable. Please contact support if this issue persists."
+          onError={(error, errorInfo) => {
+            console.error('Instruction parsing error:', error, errorInfo);
+          }}
+          fallback={
+            <div className={styles.disContainer}>
+              <p>Instructions are temporarily unavailable. Please try refreshing the page or contact support.</p>
+            </div>
+          }
+        >
+          <div className={styles.disContainer}>{parse(t(description) || '')}</div>
+        </ErrorBoundary>
         <div className={`${parentStyles.fullWidth} ${parentStyles.displayCenter}`}>
           <ButtonComponent text={t('begin')} clickHandler={clickHandler} />
         </div>
