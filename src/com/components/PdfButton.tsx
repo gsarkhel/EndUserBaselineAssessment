@@ -1,12 +1,5 @@
 import React from 'react';
-import { t } from '../helpers/LanguageTranslator';
-import styles from '../styles/homePage.scss';
-import parentStyles from '../styles/commonStyles.scss';
-import parse from 'html-react-parser';
-import ButtonComponent from './ButtonComponent';
-import "../../../public/common/assets/fonts/fonts.css"
 import AssessmentReport from './AssesmentReport/AssessmentReportMain';
-import { Image, Text, View, Page, Document, StyleSheet } from '@react-pdf/renderer';
 import { PDFViewer } from "@react-pdf/renderer";
 
 interface homepagePropsInterface {
@@ -20,11 +13,32 @@ const PdfButton = (props: homepagePropsInterface) => {
   const { title = '', heading = '', description = '', clickHandler } = props;
 
   return (
-    // <PDFViewer width="1000" height="650">
     <div>
-        <AssessmentReport />
+      {title && <h2>{title}</h2>}
+      {heading && <h3>{heading}</h3>}
+      {description && <p>{description}</p>}
+      
+      <PDFViewer width="100%" height="650px">
+        <AssessmentReport 
+          data={{
+            overallScore: 0,
+            sectionScores: [],
+            passingScore: { overall: 70 }
+          }}
+          images={{
+            certificateBG: { url: '' },
+            pdflogo: { url: '' }
+          }}
+          isPassed={false}
+        />
+      </PDFViewer>
+      
+      {clickHandler && (
+        <button onClick={() => clickHandler()}>
+          Generate PDF
+        </button>
+      )}
     </div>
-    
   );
 };
 
