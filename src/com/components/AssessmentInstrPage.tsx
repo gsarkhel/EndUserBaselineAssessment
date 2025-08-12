@@ -19,10 +19,40 @@ const AssessmentInstrPage = (props: AssessmentInterface) => {
   const [isPopUpShown, showPopUp] = useState(false);
   const popUpRef = useRef(null)
   useEffect(() => {
-    // @ts-ignore
-    document.querySelector(".thumb").addEventListener("click", (e) => {
-      showPopUp(true);
-    })
+    let attempts = 0;
+    const maxAttempts = 10; // Try for about 2 seconds (10 * 200ms)
+    const interval = 200; // Check every 200ms
+    
+    const checkForThumbElement = () => {
+      const thumbElement = document.querySelector(".thumb");
+      if (thumbElement) {
+        thumbElement.addEventListener("click", (e) => {
+          showPopUp(true);
+        });
+        return true; // Element found, stop polling
+      }
+      
+      attempts++;
+      if (attempts >= maxAttempts) {
+        console.warn("Element with class 'thumb' not found after multiple attempts");
+        return true; // Stop polling after max attempts
+      }
+      
+      return false; // Element not found, continue polling
+    };
+    
+    // Initial check
+    if (!checkForThumbElement()) {
+      // If not found immediately, start polling
+      const pollInterval = setInterval(() => {
+        if (checkForThumbElement()) {
+          clearInterval(pollInterval);
+        }
+      }, interval);
+      
+      // Cleanup function to clear interval if component unmounts
+      return () => clearInterval(pollInterval);
+    }
   }, []);
 
   useEffect(() => {
