@@ -1,5 +1,6 @@
 import { Scorm, scorm } from '@gamestdio/scorm';
 import LogWindowHelper from './LogWindowHelper';
+import Swal from 'sweetalert2';
 declare global {
   interface Window {
     mainScrom: any;
@@ -80,7 +81,16 @@ const safeScormSet = (parameter: string, value?: string | boolean | number): boo
     window.logger?.log(`ERROR: ${errorMessage}`);
     
     // Show user-friendly alert
-    alert(`Warning: Unable to save progress for '${parameter}'. Your progress may not be saved properly. Please contact support if this issue persists.`);
+    Swal.fire({
+      title: 'Warning',
+      text: `Unable to save data for '${parameter}'. Your data may not be saved properly. Please contact support if this issue persists.`,
+      icon: 'warning',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      showConfirmButton: false,
+      backdrop: true
+    });
   }
   
   return result;
@@ -100,7 +110,16 @@ const safeScormGet = (parameter: string): string | null => {
     
     // Show user-friendly alert for critical parameters
     if (parameter.includes('cmi.core') || parameter.includes('cmi.completion') || parameter.includes('cmi.success')) {
-      alert(`Warning: Unable to retrieve progress data for '${parameter}'. Your progress may not be loaded properly. Please contact support if this issue persists.`);
+      Swal.fire({
+        title: 'Warning',
+        text: `Unable to retrieve data for '${parameter}'. Your application may not be loaded properly. Please contact support if this issue persists.`,
+        icon: 'warning',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        showConfirmButton: false,
+        backdrop: true
+      });
     }
   }
   
@@ -120,7 +139,16 @@ const safeScormInitialize = (): boolean => {
     window.logger?.log(`ERROR: ${errorMessage}`);
     
     // Show user-friendly alert
-    alert(`Warning: Unable to initialize the learning system. Please refresh the page or contact support if this issue persists.`);
+    Swal.fire({
+      title: 'Warning',
+      text: `Unable to retrieve data for 'initialization'. Your application may not be loaded properly. Please contact support if this issue persists.`,
+      icon: 'warning',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      showConfirmButton: false,
+      backdrop: true
+    });
   }
   
   return result;
@@ -139,7 +167,16 @@ const safeScormTerminate = (): boolean => {
     window.logger?.log(`ERROR: ${errorMessage}`);
     
     // Show user-friendly alert
-    alert(`Warning: Unable to properly close the learning session. Your progress may not be saved. Please contact support if this issue persists.`);
+    Swal.fire({
+      title: 'Warning',
+      text: `Unable to save data for 'session_termination'. Your data may not be saved properly. Please contact support if this issue persists.`,
+      icon: 'warning',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      showConfirmButton: false,
+      backdrop: true
+    });
   }
   
   return result;
@@ -158,7 +195,16 @@ const safeScormCommit = (): boolean => {
     window.logger?.log(`ERROR: ${errorMessage}`);
     
     // Show user-friendly alert
-    alert(`Warning: Unable to save your progress. Please try again or contact support if this issue persists.`);
+    Swal.fire({
+      title: 'Warning',
+      text: `Unable to save data for 'commit'. Your data may not be saved properly. Please contact support if this issue persists.`,
+      icon: 'warning',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      showConfirmButton: false,
+      backdrop: true
+    });
   }
   
   return result;
