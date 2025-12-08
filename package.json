@@ -92,6 +92,7 @@
     "react-to-pdf": "^2.0.0",
     "react-video-js-player": "^1.1.1",
     "sinon": "^18.0.0",
-    "standardized-audio-context-mock": "^9.7.6"
+    "standardized-audio-context-mock": "^9.7.6",
+    "sweetalert2": "^11.22.3"
   }
 }

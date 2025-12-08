@@ -36,6 +36,7 @@ const App = () => {
   }, []);
 
   const generateQuestions = () => {
+    console.log('Generating Questions');
     const _general = valuesObj.generalConfig;
     const _tabs = valuesObj.tabs;
     const _scormRep = { ...scormData };
@@ -135,7 +136,7 @@ const App = () => {
     const page = location.split('_')[2];
     const question = location.split('_')[3];
     return (
-      <ErrorBoundary 
+      <ErrorBoundary
         errorMessage="There was an error loading the assessment. Please try again or contact support."
         onError={(error, errorInfo) => {
           console.error('Assessment error:', error, errorInfo);

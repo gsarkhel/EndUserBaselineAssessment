@@ -1,11 +1,72 @@
 import { Scorm, scorm } from '@gamestdio/scorm';
 import LogWindowHelper from './LogWindowHelper';
+import Swal from 'sweetalert2';
 declare global {
   interface Window {
     mainScrom: any;
     logger: any;
   }
 }
+
+/**
+ * Global utility function to sanitize strings for SCORM compatibility
+ * Replaces problematic characters that might cause issues in SCORM data
+ * @param str - The string to sanitize
+ * @returns The sanitized string
+ */
+export const sanitizeString = (str: string): string => {
+  if (!str) return '';
+  
+  return str
+    // Basic replacements for SCORM compatibility
+    .replaceAll(' ', '_')
+    .replaceAll('&', 'n')
+    .replaceAll(',', '')
+    .replaceAll('(', '')
+    .replaceAll(')', '')
+    // Additional problematic characters
+    .replaceAll(':', '_')  // Colon can cause issues in some systems
+    .replaceAll(';', '_')  // Semicolon can be problematic
+    .replaceAll('"', '')   // Double quotes can break JSON/XML
+    .replaceAll("'", '')   // Single quotes can break JSON/XML
+    .replaceAll('<', '')   // Less than can break XML/HTML
+    .replaceAll('>', '')   // Greater than can break XML/HTML
+    .replaceAll('[', '')   // Square brackets can cause parsing issues
+    .replaceAll(']', '')   // Square brackets can cause parsing issues
+    .replaceAll('{', '')   // Curly braces can cause parsing issues
+    .replaceAll('}', '')   // Curly braces can cause parsing issues
+    .replaceAll('|', '_')  // Pipe can be problematic in some contexts
+    .replaceAll('\\', '_') // Backslash can cause path issues
+    .replaceAll('/', '_')  // Forward slash can cause path issues
+    .replaceAll('?', '')   // Question mark can cause URL issues
+    .replaceAll('*', '')   // Asterisk can cause file system issues
+    .replaceAll('#', '')   // Hash can cause URL issues
+    .replaceAll('%', '')   // Percent can cause URL encoding issues
+    .replaceAll('@', 'at') // At symbol can cause email parsing issues
+    .replaceAll('!', '')   // Exclamation mark can cause parsing issues
+    .replaceAll('$', '')   // Dollar sign can cause variable parsing issues
+    .replaceAll('^', '')   // Caret can cause regex issues
+    .replaceAll('+', 'plus') // Plus can cause URL encoding issues
+    .replaceAll('=', '')   // Equals can cause parsing issues
+    .replaceAll('~', '')   // Tilde can cause URL issues
+    .replaceAll('`', '')   // Backtick can cause code injection issues
+    .replaceAll('°', 'deg') // Degree symbol
+    .replaceAll('©', 'c')  // Copyright symbol
+    .replaceAll('®', 'r')  // Registered trademark
+    .replaceAll('™', 'tm') // Trademark
+    .replaceAll('–', '-')  // En dash
+    .replaceAll('—', '-')  // Em dash
+    .replaceAll('…', '...') // Ellipsis
+    // Handle smart quotes and apostrophes with regex to avoid syntax issues
+    .replace(/[""]/g, '')   // Smart quotes
+    .replace(/['']/g, '')   // Smart apostrophes
+    // Remove any remaining non-ASCII characters
+    .replace(/[^\x00-\x7F]/g, '')
+    // Clean up multiple consecutive underscores
+    .replace(/_+/g, '_')
+    // Remove leading/trailing underscores
+    .replace(/^_+|_+$/g, '');
+};
 
 /**
  * Wrapper function for scorm.set that captures the callback and shows error alerts
@@ -20,7 +81,16 @@ const safeScormSet = (parameter: string, value?: string | boolean | number): boo
     window.logger?.log(`ERROR: ${errorMessage}`);
     
     // Show user-friendly alert
-    alert(`Warning: Unable to save progress for '${parameter}'. Your progress may not be saved properly. Please contact support if this issue persists.`);
+    Swal.fire({
+      title: 'Warning',
+      text: `Unable to save data for '${parameter}'. Your data may not be saved properly. Please contact support if this issue persists.`,
+      icon: 'warning',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      showConfirmButton: false,
+      backdrop: true
+    });
   }
   
   return result;
@@ -40,7 +110,16 @@ const safeScormGet = (parameter: string): string | null => {
     
     // Show user-friendly alert for critical parameters
     if (parameter.includes('cmi.core') || parameter.includes('cmi.completion') || parameter.includes('cmi.success')) {
-      alert(`Warning: Unable to retrieve progress data for '${parameter}'. Your progress may not be loaded properly. Please contact support if this issue persists.`);
+      Swal.fire({
+        title: 'Warning',
+        text: `Unable to retrieve data for '${parameter}'. Your application may not be loaded properly. Please contact support if this issue persists.`,
+        icon: 'warning',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        showConfirmButton: false,
+        backdrop: true
+      });
     }
   }
   
@@ -60,7 +139,16 @@ const safeScormInitialize = (): boolean => {
     window.logger?.log(`ERROR: ${errorMessage}`);
     
     // Show user-friendly alert
-    alert(`Warning: Unable to initialize the learning system. Please refresh the page or contact support if this issue persists.`);
+    Swal.fire({
+      title: 'Warning',
+      text: `Unable to retrieve data for 'initialization'. Your application may not be loaded properly. Please contact support if this issue persists.`,
+      icon: 'warning',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      showConfirmButton: false,
+      backdrop: true
+    });
   }
   
   return result;
@@ -79,7 +167,16 @@ const safeScormTerminate = (): boolean => {
     window.logger?.log(`ERROR: ${errorMessage}`);
     
     // Show user-friendly alert
-    alert(`Warning: Unable to properly close the learning session. Your progress may not be saved. Please contact support if this issue persists.`);
+    Swal.fire({
+      title: 'Warning',
+      text: `Unable to save data for 'session_termination'. Your data may not be saved properly. Please contact support if this issue persists.`,
+      icon: 'warning',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      showConfirmButton: false,
+      backdrop: true
+    });
   }
   
   return result;
@@ -98,7 +195,16 @@ const safeScormCommit = (): boolean => {
     window.logger?.log(`ERROR: ${errorMessage}`);
     
     // Show user-friendly alert
-    alert(`Warning: Unable to save your progress. Please try again or contact support if this issue persists.`);
+    Swal.fire({
+      title: 'Warning',
+      text: `Unable to save data for 'commit'. Your data may not be saved properly. Please contact support if this issue persists.`,
+      icon: 'warning',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      showConfirmButton: false,
+      backdrop: true
+    });
   }
   
   return result;

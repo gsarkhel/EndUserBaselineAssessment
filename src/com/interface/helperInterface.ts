@@ -12,6 +12,7 @@ export interface tabsInterface {
   description: string;
   numberOfQuestions: number | { [key: string]: number };
   questionBank: any[];
+  retryQuestionBank: any[];
   bgImage: string;
 }
 
